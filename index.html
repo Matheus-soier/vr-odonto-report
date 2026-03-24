@@ -170,7 +170,20 @@
   .nav-dot .nav-tooltip { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: var(--bg-card); border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; font-size: 11px; white-space: nowrap; color: var(--text); opacity: 0; pointer-events: none; transition: opacity 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
   .nav-dot:hover .nav-tooltip { opacity: 1; }
 
-  @media (max-width: 768px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } .kpi-value { font-size: 24px; } section { padding: 60px 0; } }
+  @media (max-width: 768px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .kpi-value { font-size: 24px; }
+    section { padding: 60px 0; }
+    .action-item { flex-direction: column; gap: 8px; }
+    .action-priority { min-width: auto; align-self: flex-start; }
+    .highlight-card { flex-direction: column; gap: 8px; }
+    .highlight-icon { min-width: auto; }
+    .ad-header { flex-direction: column; gap: 8px; align-items: flex-start; }
+    .ad-stats { flex-wrap: wrap; }
+    .device-grid { grid-template-columns: 1fr; }
+    .table-wrapper { font-size: 13px; }
+    td, th { padding: 10px 12px; }
+  }
   .sub-heading { font-size: 20px; font-weight: 700; margin-bottom: 20px; margin-top: 40px; }
   .sub-heading:first-of-type { margin-top: 0; }
   .caption { font-size: 13px; color: var(--text-dim); margin-top: 8px; margin-bottom: 24px; font-style: italic; }
