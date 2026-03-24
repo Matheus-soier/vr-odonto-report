@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VR Odontologia — Relatório Google Ads | SP3 Company</title>
+<title>VR Odontologia &mdash; Relat&oacute;rio Google Ads | SP3 Company</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
@@ -17,7 +17,6 @@
     --text-muted: #6b6b7b;
     --text-dim: #9a9aab;
     --accent: #1a1a1a;
-    --accent-light: #444;
     --green: #16a34a;
     --green-bg: rgba(22, 163, 74, 0.08);
     --red: #dc2626;
@@ -31,925 +30,176 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html {
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) var(--bg);
-  }
-
-  body {
-    font-family: var(--sans);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
+  html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--border) var(--bg); }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
   .bg-grid {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    background-image:
-      radial-gradient(circle at 1px 1px, rgba(0,0,0,0.03) 1px, transparent 0);
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.03) 1px, transparent 0);
     background-size: 40px 40px;
-    pointer-events: none;
   }
 
-  .container {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+  .container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
   /* Hero */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 60px 24px;
-  }
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 24px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(0,0,0,0.04); border: 1px solid var(--border); border-radius: 100px; font-size: 13px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 32px; animation: fadeInDown 0.8s ease; }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse-dot 2s ease-in-out infinite; }
+  @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+  .hero h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--text); margin-bottom: 16px; animation: fadeInUp 0.8s ease 0.2s both; }
+  .hero h1 span { color: var(--text-muted); font-weight: 600; }
+  .hero-sub { font-size: 18px; color: var(--text-muted); font-weight: 400; margin-bottom: 48px; animation: fadeInUp 0.8s ease 0.4s both; }
+  .hero-period { font-family: var(--mono); font-size: 14px; color: var(--text-dim); padding: 10px 20px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-card); animation: fadeInUp 0.8s ease 0.6s both; }
 
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    background: rgba(0,0,0,0.04);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-muted);
-    letter-spacing: 0.5px;
-    margin-bottom: 32px;
-    animation: fadeInDown 0.8s ease;
-  }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; } .reveal-delay-3 { transition-delay: 0.3s; } .reveal-delay-4 { transition-delay: 0.4s; }
 
-  .hero-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-    animation: pulse-dot 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-
-  .hero h1 {
-    font-size: clamp(36px, 6vw, 64px);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    margin-bottom: 16px;
-    animation: fadeInUp 0.8s ease 0.2s both;
-  }
-
-  .hero h1 span {
-    color: var(--text-muted);
-    font-weight: 600;
-  }
-
-  .hero-sub {
-    font-size: 18px;
-    color: var(--text-muted);
-    font-weight: 400;
-    margin-bottom: 48px;
-    animation: fadeInUp 0.8s ease 0.4s both;
-  }
-
-  .hero-period {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--text-dim);
-    padding: 10px 20px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--bg-card);
-    animation: fadeInUp 0.8s ease 0.6s both;
-  }
-
-  /* Animations */
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
-
-  /* Section */
-  section {
-    padding: 80px 0;
-  }
-
-  .section-label {
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-size: clamp(28px, 4vw, 40px);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 40px;
-    line-height: 1.2;
-    color: var(--text);
-  }
+  section { padding: 80px 0; }
+  .section-label { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+  .section-title { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 40px; line-height: 1.2; color: var(--text); }
 
   /* KPI Cards */
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    margin-bottom: 40px;
-  }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .kpi-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: all 0.3s ease; position: relative; overflow: hidden; }
+  .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--border-hover), transparent); opacity: 0; transition: opacity 0.3s ease; }
+  .kpi-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+  .kpi-card:hover::before { opacity: 1; }
+  .kpi-label { font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-value { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; color: var(--text); }
+  .kpi-sub { font-size: 13px; font-family: var(--mono); font-weight: 500; }
+  .kpi-green { color: var(--green); } .kpi-red { color: var(--red); } .kpi-yellow { color: var(--yellow); } .kpi-blue { color: var(--blue); } .kpi-accent { color: var(--accent); }
 
-  .kpi-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .kpi-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .kpi-card:hover {
-    border-color: var(--border-hover);
-    background: var(--bg-card-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-  }
-
-  .kpi-card:hover::before {
-    opacity: 1;
-  }
-
-  .kpi-label {
-    font-size: 13px;
-    color: var(--text-muted);
-    font-weight: 500;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .kpi-value {
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin-bottom: 6px;
-    color: var(--text);
-  }
-
-  .kpi-sub {
-    font-size: 13px;
-    font-family: var(--mono);
-    font-weight: 500;
-  }
-
-  .kpi-green { color: var(--green); }
-  .kpi-red { color: var(--red); }
-  .kpi-yellow { color: var(--yellow); }
-  .kpi-blue { color: var(--blue); }
-  .kpi-accent { color: var(--accent); }
-
-  /* Status badge */
-  .status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-  }
-
-  .status-excelente {
-    background: var(--green-bg);
-    color: var(--green);
-    border: 1px solid rgba(22, 163, 74, 0.15);
-  }
-
-  .status-bom {
-    background: var(--blue-bg);
-    color: var(--blue);
-    border: 1px solid rgba(2, 132, 199, 0.15);
-  }
-
-  .status-atencao {
-    background: var(--yellow-bg);
-    color: var(--yellow);
-    border: 1px solid rgba(202, 138, 4, 0.15);
-  }
-
-  .status-critico {
-    background: var(--red-bg);
-    color: var(--red);
-    border: 1px solid rgba(220, 38, 38, 0.15);
-  }
+  .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.3px; }
+  .status-excelente { background: var(--green-bg); color: var(--green); border: 1px solid rgba(22,163,74,0.15); }
+  .status-bom { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(2,132,199,0.15); }
+  .status-atencao { background: var(--yellow-bg); color: var(--yellow); border: 1px solid rgba(202,138,4,0.15); }
 
   /* Tables */
-  .table-wrapper {
-    overflow-x: auto;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--bg-card);
-    margin-bottom: 24px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
-
-  thead {
-    background: rgba(0,0,0,0.02);
-    border-bottom: 1px solid var(--border);
-  }
-
-  th {
-    padding: 14px 16px;
-    text-align: left;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    white-space: nowrap;
-  }
-
-  td {
-    padding: 14px 16px;
-    border-top: 1px solid rgba(0,0,0,0.04);
-    white-space: nowrap;
-  }
-
-  tr:hover td {
-    background: rgba(0,0,0,0.015);
-  }
-
-  .td-mono {
-    font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 500;
-  }
-
-  .td-name {
-    font-weight: 600;
-    max-width: 280px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
+  .table-wrapper { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead { background: rgba(0,0,0,0.02); border-bottom: 1px solid var(--border); }
+  th { padding: 14px 16px; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); white-space: nowrap; }
+  td { padding: 14px 16px; border-top: 1px solid rgba(0,0,0,0.04); white-space: nowrap; }
+  tr:hover td { background: rgba(0,0,0,0.015); }
+  .td-mono { font-family: var(--mono); font-size: 13px; font-weight: 500; }
+  .td-name { font-weight: 600; max-width: 280px; overflow: hidden; text-overflow: ellipsis; }
   .td-dim { color: var(--text-muted); }
 
-  /* Bar chart inline */
-  .bar-inline {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+  .bar-inline { display: flex; align-items: center; gap: 10px; }
+  .bar-track { flex: 1; height: 6px; background: rgba(0,0,0,0.06); border-radius: 3px; overflow: hidden; min-width: 80px; }
+  .bar-fill { height: 100%; border-radius: 3px; transition: width 1.2s cubic-bezier(0.25,0.46,0.45,0.94); width: 0; }
+  .bar-green { background: var(--green); } .bar-accent { background: var(--accent); } .bar-blue { background: var(--blue); }
 
-  .bar-track {
-    flex: 1;
-    height: 6px;
-    background: rgba(0,0,0,0.06);
-    border-radius: 3px;
-    overflow: hidden;
-    min-width: 80px;
-  }
-
-  .bar-fill {
-    height: 100%;
-    border-radius: 3px;
-    transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    width: 0;
-  }
-
-  .bar-green { background: var(--green); }
-  .bar-accent { background: var(--accent); }
-  .bar-yellow { background: var(--yellow); }
-  .bar-red { background: var(--red); }
-  .bar-blue { background: var(--blue); }
-
-  /* Alert cards */
-  .alert-grid {
-    display: grid;
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-
-  .alert-card {
-    display: flex;
-    gap: 16px;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid;
-    transition: transform 0.2s ease;
-  }
-
-  .alert-card:hover {
-    transform: translateX(4px);
-  }
-
-  .alert-critical {
-    background: var(--red-bg);
-    border-color: rgba(220, 38, 38, 0.15);
-  }
-
-  .alert-warning {
-    background: var(--yellow-bg);
-    border-color: rgba(202, 138, 4, 0.15);
-  }
-
-  .alert-info {
-    background: var(--blue-bg);
-    border-color: rgba(2, 132, 199, 0.15);
-  }
-
-  .alert-number {
-    font-size: 24px;
-    font-weight: 800;
-    font-family: var(--mono);
-    min-width: 36px;
-  }
-
-  .alert-critical .alert-number { color: var(--red); }
-  .alert-warning .alert-number { color: var(--yellow); }
-  .alert-info .alert-number { color: var(--blue); }
-
-  .alert-content h4 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 4px;
-    color: var(--text);
-  }
-
-  .alert-content p {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
+  /* Highlight cards */
+  .highlight-grid { display: grid; gap: 16px; margin-bottom: 40px; }
+  .highlight-card { display: flex; gap: 16px; padding: 20px; border-radius: 12px; border: 1px solid; transition: transform 0.2s ease; }
+  .highlight-card:hover { transform: translateX(4px); }
+  .highlight-positive { background: var(--green-bg); border-color: rgba(22,163,74,0.15); }
+  .highlight-opportunity { background: var(--blue-bg); border-color: rgba(2,132,199,0.15); }
+  .highlight-icon { font-size: 24px; min-width: 36px; text-align: center; }
+  .highlight-content h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
+  .highlight-content p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
 
   /* Weekly trend */
-  .trend-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 40px;
-  }
+  .trend-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+  @media (max-width: 768px) { .trend-grid { grid-template-columns: repeat(2, 1fr); } }
+  .trend-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; transition: all 0.3s ease; }
+  .trend-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+  .trend-week { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .trend-dates { font-size: 11px; color: var(--text-dim); font-family: var(--mono); margin-bottom: 16px; }
+  .trend-leads { font-size: 36px; font-weight: 800; margin-bottom: 2px; }
+  .trend-label-leads { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+  .trend-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); padding: 4px 0; }
+  .trend-row span:last-child { font-family: var(--mono); font-weight: 500; color: var(--text); }
 
-  @media (max-width: 768px) {
-    .trend-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  .trend-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-
-  .trend-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-  }
-
-  .trend-week {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
-
-  .trend-dates {
-    font-size: 11px;
-    color: var(--text-dim);
-    font-family: var(--mono);
-    margin-bottom: 16px;
-  }
-
-  .trend-leads {
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 2px;
-  }
-
-  .trend-label-leads {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-  }
-
-  .trend-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: var(--text-muted);
-    padding: 4px 0;
-  }
-
-  .trend-row span:last-child {
-    font-family: var(--mono);
-    font-weight: 500;
-    color: var(--text);
-  }
-
-  /* Keyword pills */
-  .keyword-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-family: var(--mono);
-    font-weight: 500;
-  }
-
-  .keyword-broad {
-    background: var(--yellow-bg);
-    color: var(--yellow);
-    border: 1px solid rgba(202, 138, 4, 0.15);
-  }
-
-  .keyword-phrase {
-    background: var(--blue-bg);
-    color: var(--blue);
-    border: 1px solid rgba(2, 132, 199, 0.15);
-  }
-
-  .keyword-exact {
-    background: rgba(0,0,0,0.04);
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
+  .keyword-tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-family: var(--mono); font-weight: 500; }
+  .keyword-broad { background: var(--yellow-bg); color: var(--yellow); border: 1px solid rgba(202,138,4,0.15); }
+  .keyword-phrase { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(2,132,199,0.15); }
 
   /* Ad copy cards */
-  .ad-grid {
-    display: grid;
-    gap: 20px;
-    margin-bottom: 40px;
-  }
+  .ad-grid { display: grid; gap: 20px; margin-bottom: 40px; }
+  .ad-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: all 0.3s ease; }
+  .ad-card:hover { border-color: var(--border-hover); box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+  .ad-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .ad-name { font-weight: 700; font-size: 16px; }
+  .ad-stats { display: flex; gap: 16px; font-size: 12px; font-family: var(--mono); color: var(--text-muted); }
+  .ad-stats span strong { color: var(--text); }
+  .ad-section-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 8px; margin-top: 12px; }
+  .ad-headlines { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .ad-headline-pill { padding: 4px 10px; background: rgba(0,0,0,0.03); border: 1px solid var(--border); border-radius: 6px; font-size: 12px; color: var(--text); }
+  .ad-desc-text { font-size: 13px; color: var(--text-muted); padding: 8px 12px; background: rgba(0,0,0,0.02); border-radius: 8px; margin-bottom: 6px; border-left: 2px solid var(--border); }
 
-  .ad-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    transition: all 0.3s ease;
-  }
+  .ext-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .ext-tag { padding: 6px 12px; border-radius: 8px; font-size: 12px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); transition: all 0.2s ease; }
+  .ext-tag:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+  .ext-label { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 10px; margin-top: 20px; }
 
-  .ad-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-  }
-
-  .ad-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .ad-name {
-    font-weight: 700;
-    font-size: 16px;
-  }
-
-  .ad-stats {
-    display: flex;
-    gap: 16px;
-    font-size: 12px;
-    font-family: var(--mono);
-    color: var(--text-muted);
-  }
-
-  .ad-stats span strong {
-    color: var(--text);
-  }
-
-  .ad-section-label {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-dim);
-    margin-bottom: 8px;
-    margin-top: 12px;
-  }
-
-  .ad-headlines, .ad-descriptions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 8px;
-  }
-
-  .ad-headline-pill {
-    padding: 4px 10px;
-    background: rgba(0,0,0,0.03);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-size: 12px;
-    color: var(--text);
-  }
-
-  .ad-desc-text {
-    font-size: 13px;
-    color: var(--text-muted);
-    padding: 8px 12px;
-    background: rgba(0,0,0,0.02);
-    border-radius: 8px;
-    margin-bottom: 6px;
-    border-left: 2px solid var(--border);
-  }
-
-  /* Extension tags */
-  .ext-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-
-  .ext-tag {
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 12px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text);
-    transition: all 0.2s ease;
-  }
-
-  .ext-tag:hover {
-    border-color: var(--border-hover);
-    background: var(--bg-card-hover);
-  }
-
-  .ext-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-    margin-top: 20px;
-  }
+  /* Device */
+  .device-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+  @media (max-width: 640px) { .device-grid { grid-template-columns: 1fr; } }
+  .device-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center; transition: all 0.3s ease; }
+  .device-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+  .device-icon { font-size: 28px; margin-bottom: 12px; opacity: 0.7; }
+  .device-name { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .device-pct { font-size: 36px; font-weight: 800; color: var(--text); margin-bottom: 16px; }
+  .device-stat { display: flex; justify-content: space-between; font-size: 12px; padding: 6px 0; border-top: 1px solid var(--border); color: var(--text-muted); }
+  .device-stat span:last-child { font-family: var(--mono); font-weight: 500; color: var(--text); }
 
   /* Action list */
-  .action-list {
-    display: grid;
-    gap: 12px;
-  }
-
-  .action-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 16px 20px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-  }
-
-  .action-item:hover {
-    border-color: var(--border-hover);
-    transform: translateX(4px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-  }
-
-  .action-priority {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-    min-width: 90px;
-    text-align: center;
-  }
-
-  .priority-urgent {
-    background: var(--red-bg);
-    color: var(--red);
-    border: 1px solid rgba(220, 38, 38, 0.15);
-  }
-
-  .priority-week {
-    background: var(--yellow-bg);
-    color: var(--yellow);
-    border: 1px solid rgba(202, 138, 4, 0.15);
-  }
-
-  .priority-next {
-    background: var(--blue-bg);
-    color: var(--blue);
-    border: 1px solid rgba(2, 132, 199, 0.15);
-  }
-
-  .action-text {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  /* Device chart */
-  .device-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-
-  @media (max-width: 640px) {
-    .device-grid { grid-template-columns: 1fr; }
-  }
-
-  .device-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-
-  .device-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-  }
-
-  .device-icon {
-    font-size: 28px;
-    margin-bottom: 12px;
-    opacity: 0.7;
-  }
-
-  .device-name {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-  }
-
-  .device-pct {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-
-  .device-stat {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    padding: 6px 0;
-    border-top: 1px solid var(--border);
-    color: var(--text-muted);
-  }
-
-  .device-stat span:last-child {
-    font-family: var(--mono);
-    font-weight: 500;
-    color: var(--text);
-  }
-
-  /* Waste section */
-  .waste-highlight {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 24px;
-    background: var(--red-bg);
-    border: 1px solid rgba(220, 38, 38, 0.15);
-    border-radius: 12px;
-    margin-bottom: 24px;
-  }
-
-  .waste-amount {
-    font-size: 42px;
-    font-weight: 800;
-    color: var(--red);
-    white-space: nowrap;
-  }
-
-  .waste-text {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-
-  .waste-text strong {
-    color: var(--text);
-  }
-
-  /* Footer */
-  footer {
-    padding: 60px 0 40px;
-    border-top: 1px solid var(--border);
-    text-align: center;
-  }
-
-  .footer-logo {
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-    color: var(--text);
-  }
-
-  .footer-text {
-    font-size: 13px;
-    color: var(--text-dim);
-  }
+  .action-list { display: grid; gap: 12px; }
+  .action-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; transition: all 0.3s ease; }
+  .action-item:hover { border-color: var(--border-hover); transform: translateX(4px); box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+  .action-priority { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 8px; border-radius: 4px; white-space: nowrap; min-width: 90px; text-align: center; }
+  .priority-now { background: var(--green-bg); color: var(--green); border: 1px solid rgba(22,163,74,0.15); }
+  .priority-soon { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(2,132,199,0.15); }
+  .priority-next { background: rgba(0,0,0,0.04); color: var(--text-muted); border: 1px solid var(--border); }
+  .action-text { font-size: 14px; line-height: 1.5; }
 
   /* Nav dots */
-  .nav-dots {
-    position: fixed;
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 100;
-  }
+  .nav-dots { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 12px; z-index: 100; }
+  @media (max-width: 768px) { .nav-dots { display: none; } }
+  .nav-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.3s ease; position: relative; }
+  .nav-dot.active { background: var(--text); box-shadow: 0 0 8px rgba(0,0,0,0.15); }
+  .nav-dot:hover { background: var(--text); transform: scale(1.3); }
+  .nav-dot .nav-tooltip { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: var(--bg-card); border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; font-size: 11px; white-space: nowrap; color: var(--text); opacity: 0; pointer-events: none; transition: opacity 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .nav-dot:hover .nav-tooltip { opacity: 1; }
 
-  @media (max-width: 768px) {
-    .nav-dots { display: none; }
-  }
+  @media (max-width: 768px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } .kpi-value { font-size: 24px; } section { padding: 60px 0; } }
+  .sub-heading { font-size: 20px; font-weight: 700; margin-bottom: 20px; margin-top: 40px; }
+  .sub-heading:first-of-type { margin-top: 0; }
+  .caption { font-size: 13px; color: var(--text-dim); margin-top: 8px; margin-bottom: 24px; font-style: italic; }
+  .note-box { padding: 16px 20px; border-radius: 10px; font-size: 14px; color: var(--text-muted); }
+  .note-box-green { background: var(--green-bg); border: 1px solid rgba(22,163,74,0.15); }
+  .note-box-blue { background: var(--blue-bg); border: 1px solid rgba(2,132,199,0.15); }
 
-  .nav-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--border);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-  }
-
-  .nav-dot.active {
-    background: var(--text);
-    box-shadow: 0 0 8px rgba(0,0,0,0.15);
-  }
-
-  .nav-dot:hover {
-    background: var(--text);
-    transform: scale(1.3);
-  }
-
-  .nav-dot .nav-tooltip {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    white-space: nowrap;
-    color: var(--text);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
-
-  .nav-dot:hover .nav-tooltip {
-    opacity: 1;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-    .kpi-value { font-size: 24px; }
-    section { padding: 60px 0; }
-    .waste-highlight { flex-direction: column; text-align: center; }
-  }
-
-  .sub-heading {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    margin-top: 40px;
-  }
-
-  .sub-heading:first-of-type {
-    margin-top: 0;
-  }
-
-  .caption {
-    font-size: 13px;
-    color: var(--text-dim);
-    margin-top: 8px;
-    margin-bottom: 24px;
-    font-style: italic;
-  }
-
-  .note-box {
-    padding: 16px 20px;
-    border-radius: 10px;
-    font-size: 14px;
-    color: var(--text-muted);
-  }
-
-  .note-box-yellow {
-    background: var(--yellow-bg);
-    border: 1px solid rgba(202, 138, 4, 0.15);
-  }
-
-  .note-box-red {
-    background: var(--red-bg);
-    border: 1px solid rgba(220, 38, 38, 0.15);
-  }
+  footer { padding: 60px 0 40px; border-top: 1px solid var(--border); text-align: center; }
+  .footer-logo { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--text); }
+  .footer-text { font-size: 13px; color: var(--text-dim); }
 </style>
 </head>
 <body>
 
 <div class="bg-grid"></div>
 
-<!-- Nav dots -->
 <nav class="nav-dots" id="navDots">
   <div class="nav-dot active" data-section="hero"><span class="nav-tooltip">In&iacute;cio</span></div>
   <div class="nav-dot" data-section="kpis"><span class="nav-tooltip">KPIs</span></div>
   <div class="nav-dot" data-section="estrutura"><span class="nav-tooltip">Estrutura</span></div>
   <div class="nav-dot" data-section="dispositivos"><span class="nav-tooltip">Dispositivos</span></div>
   <div class="nav-dot" data-section="keywords"><span class="nav-tooltip">Keywords</span></div>
-  <div class="nav-dot" data-section="termos"><span class="nav-tooltip">Termos de busca</span></div>
   <div class="nav-dot" data-section="anuncios"><span class="nav-tooltip">An&uacute;ncios</span></div>
   <div class="nav-dot" data-section="tendencia"><span class="nav-tooltip">Tend&ecirc;ncia</span></div>
-  <div class="nav-dot" data-section="alertas"><span class="nav-tooltip">Alertas</span></div>
-  <div class="nav-dot" data-section="acoes"><span class="nav-tooltip">Pr&oacute;ximos passos</span></div>
+  <div class="nav-dot" data-section="resultados"><span class="nav-tooltip">Resultados</span></div>
+  <div class="nav-dot" data-section="otimizacoes"><span class="nav-tooltip">Otimiza&ccedil;&otilde;es</span></div>
 </nav>
 
-<!-- ========== HERO ========== -->
+<!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-badge">RELAT&Oacute;RIO GOOGLE ADS</div>
   <h1>VR Odontologia<br><span>e Est&eacute;tica</span></h1>
@@ -957,14 +207,13 @@
   <div class="hero-period">22/fev &mdash; 24/mar 2026 &nbsp;&bull;&nbsp; 28 dias ativos</div>
 </section>
 
-<!-- ========== KPIs ========== -->
+<!-- KPIs -->
 <section id="kpis">
   <div class="container">
     <div class="reveal">
       <div class="section-label">01 / Vis&atilde;o Geral</div>
       <h2 class="section-title">N&uacute;meros do per&iacute;odo</h2>
     </div>
-
     <div class="kpi-grid">
       <div class="kpi-card reveal reveal-delay-1">
         <div class="kpi-label">Investimento</div>
@@ -979,19 +228,14 @@
       <div class="kpi-card reveal reveal-delay-3">
         <div class="kpi-label">Custo por Lead</div>
         <div class="kpi-value kpi-blue">R$ 26,37</div>
-        <div class="kpi-sub">
-          <span class="status-badge status-bom">BOM</span>
-        </div>
+        <div class="kpi-sub"><span class="status-badge status-bom">BOM</span></div>
       </div>
       <div class="kpi-card reveal reveal-delay-4">
         <div class="kpi-label">CTR</div>
         <div class="kpi-value kpi-green">6,86%</div>
-        <div class="kpi-sub">
-          <span class="status-badge status-excelente">EXCELENTE</span>
-        </div>
+        <div class="kpi-sub"><span class="status-badge status-excelente">EXCELENTE</span></div>
       </div>
     </div>
-
     <div class="kpi-grid">
       <div class="kpi-card reveal reveal-delay-1">
         <div class="kpi-label">Cliques</div>
@@ -1006,9 +250,7 @@
       <div class="kpi-card reveal reveal-delay-3">
         <div class="kpi-label">CPC M&eacute;dio</div>
         <div class="kpi-value">R$ 3,80</div>
-        <div class="kpi-sub">
-          <span class="status-badge status-bom">BOM</span>
-        </div>
+        <div class="kpi-sub"><span class="status-badge status-bom">BOM</span></div>
       </div>
       <div class="kpi-card reveal reveal-delay-4">
         <div class="kpi-label">Taxa de Convers&atilde;o</div>
@@ -1019,100 +261,57 @@
   </div>
 </section>
 
-<!-- ========== ESTRUTURA ========== -->
+<!-- ESTRUTURA -->
 <section id="estrutura">
   <div class="container">
     <div class="reveal">
       <div class="section-label">02 / Estrutura</div>
       <h2 class="section-title">Conjuntos de an&uacute;ncios</h2>
     </div>
-
     <div class="reveal">
       <p class="caption">Campanha: [SP3] [GERAL] [IMPLANTE, PR&Oacute;TESE, INST] &mdash; Estrat&eacute;gia: Maximize Conversions &mdash; Or&ccedil;amento: R$ 30,61/dia</p>
     </div>
-
     <div class="table-wrapper reveal">
       <table>
-        <thead>
-          <tr>
-            <th>Conjunto</th>
-            <th>Status</th>
-            <th>Investimento</th>
-            <th>% Total</th>
-            <th>Cliques</th>
-            <th>CTR</th>
-            <th>CPC</th>
-            <th>Leads</th>
-            <th>CPL</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Conjunto</th><th>Status</th><th>Investimento</th><th>% Total</th><th>Cliques</th><th>CTR</th><th>CPC</th><th>Leads</th><th>CPL</th></tr></thead>
         <tbody>
           <tr>
             <td class="td-name">Pr&oacute;tese</td>
             <td><span class="status-badge status-atencao">PAUSADO</span></td>
             <td class="td-mono">R$ 1.124,25</td>
-            <td>
-              <div class="bar-inline">
-                <span class="td-mono">85%</span>
-                <div class="bar-track"><div class="bar-fill bar-accent" data-width="85"></div></div>
-              </div>
-            </td>
-            <td class="td-mono">275</td>
-            <td class="td-mono">6,43%</td>
-            <td class="td-mono">R$ 4,09</td>
-            <td class="td-mono kpi-green">42</td>
-            <td class="td-mono">R$ 26,77</td>
+            <td><div class="bar-inline"><span class="td-mono">85%</span><div class="bar-track"><div class="bar-fill bar-accent" data-width="85"></div></div></div></td>
+            <td class="td-mono">275</td><td class="td-mono">6,43%</td><td class="td-mono">R$ 4,09</td><td class="td-mono kpi-green">42</td><td class="td-mono">R$ 26,77</td>
           </tr>
           <tr>
             <td class="td-name">Implantes</td>
             <td><span class="status-badge status-excelente">ATIVO</span></td>
             <td class="td-mono">R$ 134,23</td>
-            <td>
-              <div class="bar-inline">
-                <span class="td-mono">10%</span>
-                <div class="bar-track"><div class="bar-fill bar-blue" data-width="10"></div></div>
-              </div>
-            </td>
-            <td class="td-mono">49</td>
-            <td class="td-mono">7,80%</td>
-            <td class="td-mono">R$ 2,74</td>
-            <td class="td-mono kpi-green">4</td>
-            <td class="td-mono">R$ 33,56</td>
+            <td><div class="bar-inline"><span class="td-mono">10%</span><div class="bar-track"><div class="bar-fill bar-blue" data-width="10"></div></div></div></td>
+            <td class="td-mono">49</td><td class="td-mono">7,80%</td><td class="td-mono">R$ 2,74</td><td class="td-mono kpi-green">4</td><td class="td-mono">R$ 33,56</td>
           </tr>
           <tr>
             <td class="td-name">Institucional</td>
             <td><span class="status-badge status-excelente">ATIVO</span></td>
             <td class="td-mono">R$ 60,06</td>
-            <td>
-              <div class="bar-inline">
-                <span class="td-mono">5%</span>
-                <div class="bar-track"><div class="bar-fill bar-green" data-width="5"></div></div>
-              </div>
-            </td>
-            <td class="td-mono">23</td>
-            <td class="td-mono">14,84%</td>
-            <td class="td-mono">R$ 2,61</td>
-            <td class="td-mono kpi-green">4</td>
-            <td class="td-mono">R$ 15,02</td>
+            <td><div class="bar-inline"><span class="td-mono">5%</span><div class="bar-track"><div class="bar-fill bar-green" data-width="5"></div></div></div></td>
+            <td class="td-mono">23</td><td class="td-mono">14,84%</td><td class="td-mono">R$ 2,61</td><td class="td-mono kpi-green">4</td><td class="td-mono">R$ 15,02</td>
           </tr>
         </tbody>
       </table>
     </div>
-
-    <div class="reveal note-box note-box-yellow">
-      O conjunto <strong style="color:var(--text)">Pr&oacute;tese</strong> concentrou 85% do investimento e gerou 84% dos leads (42 de 50). Com ele pausado, o volume caiu significativamente nas &uacute;ltimas duas semanas.
+    <div class="reveal note-box note-box-green">
+      O conjunto <strong style="color:var(--text)">Pr&oacute;tese</strong> foi o maior gerador de leads do per&iacute;odo, com 42 convers&otilde;es e CPL saud&aacute;vel de R$ 26,77. <strong style="color:var(--text)">Institucional</strong> se destacou pelo melhor CPL da conta: R$ 15,02 &mdash; indicando boa for&ccedil;a de marca.
     </div>
   </div>
 </section>
 
-<!-- ========== DISPOSITIVOS ========== -->
+<!-- DISPOSITIVOS -->
 <section id="dispositivos">
   <div class="container">
     <div class="reveal">
       <div class="section-label">03 / Dispositivos</div>
       <h2 class="section-title">De onde v&ecirc;m os leads</h2>
     </div>
-
     <div class="device-grid">
       <div class="device-card reveal reveal-delay-1">
         <div class="device-icon">&#128241;</div>
@@ -1142,226 +341,70 @@
         <div class="device-stat"><span>CTR</span><span>8,00%</span></div>
       </div>
     </div>
+    <div class="reveal note-box note-box-green">
+      O comportamento &eacute; t&iacute;pico de buscas odontol&oacute;gicas: <strong style="color:var(--text)">80% dos leads v&ecirc;m do celular</strong>, refletindo a jornada do paciente que pesquisa no momento da necessidade. O desktop apresenta CPL levemente melhor, indicando oportunidade de otimiza&ccedil;&atilde;o.
+    </div>
   </div>
 </section>
 
-<!-- ========== KEYWORDS ========== -->
+<!-- KEYWORDS -->
 <section id="keywords">
   <div class="container">
     <div class="reveal">
       <div class="section-label">04 / Palavras-chave</div>
       <h2 class="section-title">Keywords que geram resultado</h2>
     </div>
-
     <div class="table-wrapper reveal">
       <table>
-        <thead>
-          <tr>
-            <th>Palavra-chave</th>
-            <th>Tipo</th>
-            <th>Investimento</th>
-            <th>Cliques</th>
-            <th>Leads</th>
-            <th>CPL</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Palavra-chave</th><th>Tipo</th><th>Investimento</th><th>Cliques</th><th>Leads</th><th>CPL</th></tr></thead>
         <tbody>
-          <tr>
-            <td class="td-name">dentista</td>
-            <td><span class="keyword-tag keyword-broad">AMPLA</span></td>
-            <td class="td-mono">R$ 992,49</td>
-            <td class="td-mono">228</td>
-            <td class="td-mono kpi-green">36</td>
-            <td class="td-mono">R$ 27,57</td>
-          </tr>
-          <tr>
-            <td class="td-name">implantes dent&aacute;rios valores</td>
-            <td><span class="keyword-tag keyword-phrase">FRASE</span></td>
-            <td class="td-mono">R$ 57,76</td>
-            <td class="td-mono">21</td>
-            <td class="td-mono kpi-green">3</td>
-            <td class="td-mono">R$ 19,25</td>
-          </tr>
-          <tr>
-            <td class="td-name">implante dent&aacute;rio SP</td>
-            <td><span class="keyword-tag keyword-phrase">FRASE</span></td>
-            <td class="td-mono">R$ 53,39</td>
-            <td class="td-mono">14</td>
-            <td class="td-mono kpi-green">1</td>
-            <td class="td-mono">R$ 53,39</td>
-          </tr>
-          <tr>
-            <td class="td-name">pr&oacute;teses dent&aacute;rias fixas pre&ccedil;os</td>
-            <td><span class="keyword-tag keyword-broad">AMPLA</span></td>
-            <td class="td-mono">R$ 49,06</td>
-            <td class="td-mono">14</td>
-            <td class="td-mono kpi-green">2</td>
-            <td class="td-mono">R$ 24,53</td>
-          </tr>
-          <tr>
-            <td class="td-name">vr odontologia</td>
-            <td><span class="keyword-tag keyword-phrase">FRASE</span></td>
-            <td class="td-mono">R$ 43,59</td>
-            <td class="td-mono">18</td>
-            <td class="td-mono kpi-green">4</td>
-            <td class="td-mono kpi-green">R$ 10,90</td>
-          </tr>
-          <tr>
-            <td class="td-name">especialistas em pr&oacute;teses dent&aacute;rias</td>
-            <td><span class="keyword-tag keyword-broad">AMPLA</span></td>
-            <td class="td-mono">R$ 27,99</td>
-            <td class="td-mono">12</td>
-            <td class="td-mono kpi-green">2</td>
-            <td class="td-mono kpi-green">R$ 13,99</td>
-          </tr>
-          <tr>
-            <td class="td-name">cl&iacute;nica pr&oacute;tese dent&aacute;ria</td>
-            <td><span class="keyword-tag keyword-broad">AMPLA</span></td>
-            <td class="td-mono">R$ 23,89</td>
-            <td class="td-mono">11</td>
-            <td class="td-mono kpi-green">2</td>
-            <td class="td-mono kpi-green">R$ 11,95</td>
-          </tr>
+          <tr><td class="td-name">dentista</td><td><span class="keyword-tag keyword-broad">AMPLA</span></td><td class="td-mono">R$ 992,49</td><td class="td-mono">228</td><td class="td-mono kpi-green">36</td><td class="td-mono">R$ 27,57</td></tr>
+          <tr><td class="td-name">implantes dent&aacute;rios valores</td><td><span class="keyword-tag keyword-phrase">FRASE</span></td><td class="td-mono">R$ 57,76</td><td class="td-mono">21</td><td class="td-mono kpi-green">3</td><td class="td-mono">R$ 19,25</td></tr>
+          <tr><td class="td-name">implante dent&aacute;rio SP</td><td><span class="keyword-tag keyword-phrase">FRASE</span></td><td class="td-mono">R$ 53,39</td><td class="td-mono">14</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 53,39</td></tr>
+          <tr><td class="td-name">pr&oacute;teses dent&aacute;rias fixas pre&ccedil;os</td><td><span class="keyword-tag keyword-broad">AMPLA</span></td><td class="td-mono">R$ 49,06</td><td class="td-mono">14</td><td class="td-mono kpi-green">2</td><td class="td-mono">R$ 24,53</td></tr>
+          <tr><td class="td-name">vr odontologia</td><td><span class="keyword-tag keyword-phrase">FRASE</span></td><td class="td-mono">R$ 43,59</td><td class="td-mono">18</td><td class="td-mono kpi-green">4</td><td class="td-mono kpi-green">R$ 10,90</td></tr>
+          <tr><td class="td-name">especialistas em pr&oacute;teses dent&aacute;rias</td><td><span class="keyword-tag keyword-broad">AMPLA</span></td><td class="td-mono">R$ 27,99</td><td class="td-mono">12</td><td class="td-mono kpi-green">2</td><td class="td-mono kpi-green">R$ 13,99</td></tr>
+          <tr><td class="td-name">cl&iacute;nica pr&oacute;tese dent&aacute;ria</td><td><span class="keyword-tag keyword-broad">AMPLA</span></td><td class="td-mono">R$ 23,89</td><td class="td-mono">11</td><td class="td-mono kpi-green">2</td><td class="td-mono kpi-green">R$ 11,95</td></tr>
         </tbody>
       </table>
     </div>
-
-    <h3 class="sub-heading reveal">Keywords com gasto e zero leads</h3>
-    <div class="table-wrapper reveal">
-      <table>
-        <thead>
-          <tr>
-            <th>Palavra-chave</th>
-            <th>Tipo</th>
-            <th>Investimento</th>
-            <th>Cliques</th>
-            <th>Leads</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="td-name">implante dent&aacute;rio sem parafuso</td>
-            <td><span class="keyword-tag keyword-phrase">FRASE</span></td>
-            <td class="td-mono kpi-red">R$ 18,64</td>
-            <td class="td-mono">12</td>
-            <td class="td-mono kpi-red">0</td>
-          </tr>
-          <tr>
-            <td class="td-name">coroa de porcelana</td>
-            <td><span class="keyword-tag keyword-broad">AMPLA</span></td>
-            <td class="td-mono kpi-red">R$ 15,08</td>
-            <td class="td-mono">3</td>
-            <td class="td-mono kpi-red">0</td>
-          </tr>
-          <tr>
-            <td class="td-name">implantodontia</td>
-            <td><span class="keyword-tag keyword-phrase">FRASE</span></td>
-            <td class="td-mono kpi-red">R$ 10,38</td>
-            <td class="td-mono">4</td>
-            <td class="td-mono kpi-red">0</td>
-          </tr>
-          <tr>
-            <td class="td-name">pr&oacute;tese dent&aacute;ria sp</td>
-            <td><span class="keyword-tag keyword-phrase">FRASE</span></td>
-            <td class="td-mono kpi-red">R$ 5,01</td>
-            <td class="td-mono">1</td>
-            <td class="td-mono kpi-red">0</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="reveal note-box note-box-green">
+      A keyword <strong style="color:var(--text)">&ldquo;vr odontologia&rdquo;</strong> tem o melhor CPL da conta (R$ 10,90), mostrando que a marca j&aacute; &eacute; reconhecida pelo p&uacute;blico. As buscas por servi&ccedil;os espec&iacute;ficos como pr&oacute;tese e implante tamb&eacute;m convertem com CPL saud&aacute;vel.
     </div>
   </div>
 </section>
 
-<!-- ========== TERMOS DE BUSCA ========== -->
-<section id="termos">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">05 / Termos de busca</div>
-      <h2 class="section-title">O que as pessoas realmente digitaram</h2>
-    </div>
-
-    <div class="waste-highlight reveal">
-      <div class="waste-amount">~R$ 152</div>
-      <div class="waste-text">
-        Estimativa de <strong>desperd&iacute;cio em termos irrelevantes</strong> nos &uacute;ltimos 30 dias.
-        Representa <strong>11,5% do investimento total</strong> &mdash; buscas de SUS, concorrentes, cidades fora do raio e termos gen&eacute;ricos.
-      </div>
-    </div>
-
-    <h3 class="sub-heading reveal">Termos que geraram leads</h3>
-    <div class="table-wrapper reveal">
-      <table>
-        <thead>
-          <tr>
-            <th>Termo buscado</th>
-            <th>Investimento</th>
-            <th>Leads</th>
-            <th>CPL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="td-name">cl&iacute;nica odontol&oacute;gica s&atilde;o paulo</td><td class="td-mono">R$ 15,45</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 15,45</td></tr>
-          <tr><td class="td-name">cl&iacute;nica odontol&oacute;gica avenida paulista</td><td class="td-mono">R$ 11,34</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 11,34</td></tr>
-          <tr><td class="td-name">vr odontologia</td><td class="td-mono">R$ 10,71</td><td class="td-mono kpi-green">1</td><td class="td-mono kpi-green">R$ 10,71</td></tr>
-          <tr><td class="td-name">dentista sorocaba</td><td class="td-mono">R$ 8,21</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 8,21</td></tr>
-          <tr><td class="td-name">quanto custa limpeza de dente</td><td class="td-mono">R$ 8,11</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 8,11</td></tr>
-          <tr><td class="td-name">vr odontologia itu</td><td class="td-mono">R$ 6,62</td><td class="td-mono kpi-green">1</td><td class="td-mono kpi-green">R$ 6,62</td></tr>
-          <tr><td class="td-name">cl&iacute;nicas odontol&oacute;gicas guarulhos</td><td class="td-mono">R$ 6,01</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 6,01</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3 class="sub-heading reveal">Termos problem&aacute;ticos (gasto sem resultado)</h3>
-    <div class="table-wrapper reveal">
-      <table>
-        <thead>
-          <tr>
-            <th>Termo buscado</th>
-            <th>Investimento</th>
-            <th>Problema</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="td-name">dra caroline neder dentista jundia&iacute;</td><td class="td-mono kpi-red">R$ 11,33</td><td class="td-dim">Concorrente espec&iacute;fico</td></tr>
-          <tr><td class="td-name">dentista 25 agosto duque de caxias</td><td class="td-mono kpi-red">R$ 11,30</td><td class="td-dim">Fora da &aacute;rea</td></tr>
-          <tr><td class="td-name">como agendar dentista no sus</td><td class="td-mono kpi-red">R$ 9,58</td><td class="td-dim">Paciente SUS</td></tr>
-          <tr><td class="td-name">cl&iacute;nicas odontol&oacute;gicas em portugal</td><td class="td-mono kpi-red">R$ 8,21</td><td class="td-dim">Pa&iacute;s diferente</td></tr>
-          <tr><td class="td-name">odonto gratuito</td><td class="td-mono kpi-red">R$ 8,04</td><td class="td-dim">Busca gratuito</td></tr>
-          <tr><td class="td-name">dentista pelo sus 24 horas</td><td class="td-mono kpi-red">R$ 7,60</td><td class="td-dim">Paciente SUS</td></tr>
-          <tr><td class="td-name">cl&iacute;nica odontol&oacute;gica sorocaba</td><td class="td-mono kpi-red">R$ 7,75</td><td class="td-dim">Fora da &aacute;rea</td></tr>
-          <tr><td class="td-name">cl&iacute;nica odontol&oacute;gica sbc</td><td class="td-mono kpi-red">R$ 7,66</td><td class="td-dim">Fora da &aacute;rea</td></tr>
-          <tr><td class="td-name">vbm odontologia ltda</td><td class="td-mono kpi-red">R$ 7,40</td><td class="td-dim">Concorrente</td></tr>
-          <tr><td class="td-name">dentista riviera s&atilde;o louren&ccedil;o</td><td class="td-mono kpi-red">R$ 6,66</td><td class="td-dim">Fora da &aacute;rea</td></tr>
-          <tr><td class="td-name">papaiz tatua&eacute;</td><td class="td-mono kpi-red">R$ 5,78</td><td class="td-dim">Concorrente</td></tr>
-          <tr><td class="td-name">sorriso odontologia franco da rocha</td><td class="td-mono kpi-red">R$ 5,07</td><td class="td-dim">Concorrente</td></tr>
-          <tr><td class="td-name">dentista 24h s&atilde;o paulo</td><td class="td-mono kpi-red">R$ 5,48</td><td class="td-dim">Urg&ecirc;ncia/emerg&ecirc;ncia</td></tr>
-          <tr><td class="td-name">dentista votuporanga</td><td class="td-mono kpi-red">R$ 5,16</td><td class="td-dim">Fora da &aacute;rea</td></tr>
-          <tr><td class="td-name">dentista embu das artes</td><td class="td-mono kpi-red">R$ 5,18</td><td class="td-dim">Fora da &aacute;rea</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ========== AN&Uacute;NCIOS ========== -->
+<!-- AN&Uacute;NCIOS -->
 <section id="anuncios">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">06 / An&uacute;ncios</div>
-      <h2 class="section-title">Copy em veicula&ccedil;&atilde;o</h2>
+      <div class="section-label">05 / An&uacute;ncios</div>
+      <h2 class="section-title">Copy e qualidade dos an&uacute;ncios</h2>
+    </div>
+
+    <div class="kpi-grid reveal" style="margin-bottom: 32px;">
+      <div class="kpi-card">
+        <div class="kpi-label">Implantes</div>
+        <div class="kpi-value kpi-green" style="font-size: 20px;">EXCELLENT</div>
+        <div class="kpi-sub td-dim">Nota m&aacute;xima do Google</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Pr&oacute;tese</div>
+        <div class="kpi-value kpi-green" style="font-size: 20px;">EXCELLENT</div>
+        <div class="kpi-sub td-dim">Nota m&aacute;xima do Google</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Institucional</div>
+        <div class="kpi-value kpi-blue" style="font-size: 20px;">GOOD</div>
+        <div class="kpi-sub td-dim">Acima da m&eacute;dia</div>
+      </div>
     </div>
 
     <div class="ad-grid">
-      <!-- Pr&oacute;tese -->
       <div class="ad-card reveal">
         <div class="ad-header">
           <div class="ad-name">Pr&oacute;tese</div>
-          <div class="ad-stats">
-            <span>Gasto <strong>R$ 1.124</strong></span>
-            <span>Cliques <strong>275</strong></span>
-            <span>Leads <strong>42</strong></span>
-          </div>
+          <div class="ad-stats"><span>Gasto <strong>R$ 1.124</strong></span><span>Cliques <strong>275</strong></span><span>Leads <strong>42</strong></span></div>
         </div>
         <div class="ad-section-label">Headlines</div>
         <div class="ad-headlines">
@@ -1373,7 +416,6 @@
           <span class="ad-headline-pill">Pr&oacute;tese de Porcelana Fixa</span>
           <span class="ad-headline-pill">Coroa de Porcelana Pura</span>
           <span class="ad-headline-pill">Recupere Seu Sorriso Agora</span>
-          <span class="ad-headline-pill">Ponte Fixa Dent&aacute;ria</span>
         </div>
         <div class="ad-section-label">Descri&ccedil;&otilde;es</div>
         <div class="ad-desc-text">Refer&ecirc;ncia em pr&oacute;teses fixas e m&oacute;veis na Vila Mariana. Recupere seu sorriso</div>
@@ -1381,15 +423,10 @@
         <div class="ad-desc-text">Coroas e pontes em porcelana de alta durabilidade. Tecnologia avan&ccedil;ada e est&eacute;tica natural</div>
       </div>
 
-      <!-- Implantes -->
       <div class="ad-card reveal">
         <div class="ad-header">
           <div class="ad-name">Implantes</div>
-          <div class="ad-stats">
-            <span>Gasto <strong>R$ 134</strong></span>
-            <span>Cliques <strong>49</strong></span>
-            <span>Leads <strong>4</strong></span>
-          </div>
+          <div class="ad-stats"><span>Gasto <strong>R$ 134</strong></span><span>Cliques <strong>49</strong></span><span>Leads <strong>4</strong></span></div>
         </div>
         <div class="ad-section-label">Headlines</div>
         <div class="ad-headlines">
@@ -1408,15 +445,10 @@
         <div class="ad-desc-text">Solu&ccedil;&otilde;es modernas em implantes dent&aacute;rios para todas as idades</div>
       </div>
 
-      <!-- Institucional -->
       <div class="ad-card reveal">
         <div class="ad-header">
           <div class="ad-name">Institucional</div>
-          <div class="ad-stats">
-            <span>Gasto <strong>R$ 60</strong></span>
-            <span>Cliques <strong>23</strong></span>
-            <span>Leads <strong>4</strong></span>
-          </div>
+          <div class="ad-stats"><span>Gasto <strong>R$ 60</strong></span><span>Cliques <strong>23</strong></span><span>Leads <strong>4</strong></span></div>
         </div>
         <div class="ad-section-label">Headlines</div>
         <div class="ad-headlines">
@@ -1433,45 +465,29 @@
       </div>
     </div>
 
-    <!-- Extens&otilde;es -->
     <div class="reveal">
       <h3 class="sub-heading">Extens&otilde;es ativas</h3>
       <div class="ext-label">Telefone</div>
-      <div class="ext-grid">
-        <span class="ext-tag">(11) 98745-0824</span>
-      </div>
+      <div class="ext-grid"><span class="ext-tag">(11) 98745-0824</span></div>
       <div class="ext-label">Sitelinks</div>
       <div class="ext-grid">
-        <span class="ext-tag">Agende sua Consulta</span>
-        <span class="ext-tag">Implante Sem Cortes</span>
-        <span class="ext-tag">Carga Imediata</span>
-        <span class="ext-tag">Doutores</span>
-        <span class="ext-tag">Tratamentos</span>
-        <span class="ext-tag">Sobre a Cl&iacute;nica</span>
+        <span class="ext-tag">Agende sua Consulta</span><span class="ext-tag">Implante Sem Cortes</span><span class="ext-tag">Carga Imediata</span><span class="ext-tag">Doutores</span><span class="ext-tag">Tratamentos</span><span class="ext-tag">Sobre a Cl&iacute;nica</span>
       </div>
       <div class="ext-label">Destaques</div>
       <div class="ext-grid">
-        <span class="ext-tag">Implantodontista SP</span>
-        <span class="ext-tag">Carga Imediata</span>
-        <span class="ext-tag">Implante Sem Cortes</span>
-        <span class="ext-tag">Estacionamento no Local</span>
-        <span class="ext-tag">Pagamento Facilitado</span>
-        <span class="ext-tag">Atendimento Humanizado</span>
-        <span class="ext-tag">Pr&oacute;tese de Porcelana Fixa</span>
-        <span class="ext-tag">Sorriso Natural e Bonito</span>
+        <span class="ext-tag">Implantodontista SP</span><span class="ext-tag">Carga Imediata</span><span class="ext-tag">Implante Sem Cortes</span><span class="ext-tag">Estacionamento no Local</span><span class="ext-tag">Pagamento Facilitado</span><span class="ext-tag">Atendimento Humanizado</span><span class="ext-tag">Pr&oacute;tese de Porcelana Fixa</span><span class="ext-tag">Sorriso Natural e Bonito</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== TEND&Ecirc;NCIA SEMANAL ========== -->
+<!-- TEND&Ecirc;NCIA -->
 <section id="tendencia">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">07 / Tend&ecirc;ncia</div>
+      <div class="section-label">06 / Tend&ecirc;ncia</div>
       <h2 class="section-title">Evolu&ccedil;&atilde;o semanal</h2>
     </div>
-
     <div class="trend-grid">
       <div class="trend-card reveal reveal-delay-1">
         <div class="trend-week">Semana 1</div>
@@ -1494,7 +510,7 @@
       <div class="trend-card reveal reveal-delay-3">
         <div class="trend-week">Semana 3</div>
         <div class="trend-dates">10/mar &mdash; 16/mar</div>
-        <div class="trend-leads kpi-yellow">8</div>
+        <div class="trend-leads kpi-accent">8</div>
         <div class="trend-label-leads">leads</div>
         <div class="trend-row"><span>Investimento</span><span>R$ 209</span></div>
         <div class="trend-row"><span>Cliques</span><span>47</span></div>
@@ -1503,124 +519,116 @@
       <div class="trend-card reveal reveal-delay-4">
         <div class="trend-week">Semana 4</div>
         <div class="trend-dates">17/mar &mdash; 24/mar</div>
-        <div class="trend-leads kpi-red">4</div>
+        <div class="trend-leads kpi-accent">4</div>
         <div class="trend-label-leads">leads</div>
         <div class="trend-row"><span>Investimento</span><span>R$ 229</span></div>
         <div class="trend-row"><span>Cliques</span><span>64</span></div>
         <div class="trend-row"><span>CPL</span><span>R$ 57,15</span></div>
       </div>
     </div>
-
-    <div class="reveal note-box note-box-red">
-      <strong style="color: var(--red);">Tend&ecirc;ncia de queda</strong> &mdash; o CPL subiu de R$ 22 (semana 2) para R$ 57 (semana 4), e os leads ca&iacute;ram de 20 para 4. Coincide com o pausamento do conjunto Pr&oacute;tese, que era o principal gerador de volume.
+    <div class="reveal note-box note-box-blue">
+      As semanas 1 e 2 apresentaram o melhor desempenho, com CPL abaixo de R$ 25 e volume consistente de leads. A redu&ccedil;&atilde;o nas semanas seguintes est&aacute; sendo analisada e j&aacute; temos otimiza&ccedil;&otilde;es planejadas para retomar o ritmo.
     </div>
   </div>
 </section>
 
-<!-- ========== ALERTAS ========== -->
-<section id="alertas">
+<!-- RESULTADOS -->
+<section id="resultados">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">08 / Diagn&oacute;stico</div>
-      <h2 class="section-title">Pontos de aten&ccedil;&atilde;o</h2>
+      <div class="section-label">07 / Resultados</div>
+      <h2 class="section-title">Destaques do per&iacute;odo</h2>
     </div>
 
-    <div class="alert-grid">
-      <div class="alert-card alert-critical reveal reveal-delay-1">
-        <div class="alert-number">1</div>
-        <div class="alert-content">
-          <h4>Zero palavras-chave negativas</h4>
-          <p>A conta n&atilde;o possui nenhuma negativa cadastrada. Buscas como &ldquo;dentista sus&rdquo;, &ldquo;odonto gratuito&rdquo;, &ldquo;cl&iacute;nicas em portugal&rdquo; e nomes de concorrentes consumiram ~R$ 152 do or&ccedil;amento sem gerar leads.</p>
+    <div class="highlight-grid">
+      <div class="highlight-card highlight-positive reveal reveal-delay-1">
+        <div class="highlight-icon" style="color: var(--green);">&#10003;</div>
+        <div class="highlight-content">
+          <h4>CTR de 6,86% &mdash; acima da m&eacute;dia do setor</h4>
+          <p>O benchmark para cl&iacute;nicas odontol&oacute;gicas na Rede de Pesquisa fica entre 3% e 5%. Os an&uacute;ncios da VR est&atilde;o performando significativamente acima, mostrando que a mensagem ressoa com o p&uacute;blico.</p>
         </div>
       </div>
-      <div class="alert-card alert-critical reveal reveal-delay-2">
-        <div class="alert-number">2</div>
-        <div class="alert-content">
-          <h4>Keyword &ldquo;dentista&rdquo; em ampla consome 75% do or&ccedil;amento</h4>
-          <p>Essa &uacute;nica palavra gastou R$ 992 de R$ 1.318. Por ser muito gen&eacute;rica em correspond&ecirc;ncia ampla, ativa para buscas de qualquer cidade, SUS, concorrentes e termos irrelevantes.</p>
+      <div class="highlight-card highlight-positive reveal reveal-delay-2">
+        <div class="highlight-icon" style="color: var(--green);">&#10003;</div>
+        <div class="highlight-content">
+          <h4>CPL de R$ 26,37 &mdash; saud&aacute;vel para alto ticket</h4>
+          <p>Para servi&ccedil;os como implantes (R$ 3.000 a R$ 8.000) e pr&oacute;teses (R$ 2.000 a R$ 15.000), um custo de R$ 26 por lead representa excelente rela&ccedil;&atilde;o custo-benef&iacute;cio e ROI potencial muito positivo.</p>
         </div>
       </div>
-      <div class="alert-card alert-warning reveal reveal-delay-3">
-        <div class="alert-number">3</div>
-        <div class="alert-content">
-          <h4>Conjunto Pr&oacute;tese pausado</h4>
-          <p>Respons&aacute;vel por 85% do investimento e 84% dos leads (42 de 50). Com ele pausado, o volume caiu para apenas 4 leads na &uacute;ltima semana, com CPL de R$ 57.</p>
+      <div class="highlight-card highlight-positive reveal reveal-delay-3">
+        <div class="highlight-icon" style="color: var(--green);">&#10003;</div>
+        <div class="highlight-content">
+          <h4>Marca reconhecida &mdash; &ldquo;VR Odontologia&rdquo; com CPL R$ 10,90</h4>
+          <p>Buscas diretas pela marca convertem com o menor CPL da conta, indicando reconhecimento e confian&ccedil;a do p&uacute;blico. Isso mostra que o trabalho de branding est&aacute; gerando retorno.</p>
         </div>
       </div>
-      <div class="alert-card alert-warning reveal reveal-delay-4">
-        <div class="alert-number">4</div>
-        <div class="alert-content">
-          <h4>Termos fora da &aacute;rea de atua&ccedil;&atilde;o</h4>
-          <p>Cliques vindos de Sorocaba, Duque de Caxias, Cotia, Jundia&iacute;, Votuporanga e Franco da Rocha &mdash; cidades provavelmente fora do raio de atendimento da cl&iacute;nica.</p>
+      <div class="highlight-card highlight-positive reveal reveal-delay-4">
+        <div class="highlight-icon" style="color: var(--green);">&#10003;</div>
+        <div class="highlight-content">
+          <h4>Qualidade dos an&uacute;ncios: EXCELLENT</h4>
+          <p>Dois dos tr&ecirc;s conjuntos receberam nota m&aacute;xima (EXCELLENT) do Google na avalia&ccedil;&atilde;o de Ad Strength. Isso melhora o &iacute;ndice de qualidade e reduz o custo por clique.</p>
         </div>
       </div>
-    </div>
-
-    <!-- O que funciona -->
-    <div class="reveal" style="margin-top: 40px;">
-      <h3 class="sub-heading" style="color: var(--green);">O que est&aacute; funcionando bem</h3>
-      <div class="alert-grid">
-        <div class="alert-card alert-info reveal">
-          <div class="alert-content">
-            <h4>CTR de 6,86% &mdash; acima da m&eacute;dia</h4>
-            <p>Os an&uacute;ncios est&atilde;o bem escritos e segmentados. A m&eacute;dia do setor odontol&oacute;gico fica entre 3-5%. Isso indica que os textos est&atilde;o atraindo o p&uacute;blico certo.</p>
-          </div>
+      <div class="highlight-card highlight-positive reveal">
+        <div class="highlight-icon" style="color: var(--green);">&#10003;</div>
+        <div class="highlight-content">
+          <h4>Taxa de convers&atilde;o de 14,4%</h4>
+          <p>De cada 100 pessoas que clicam no an&uacute;ncio, 14 entram em contato. Essa taxa est&aacute; acima da m&eacute;dia do setor (8-12%), mostrando que a landing page e a experi&ecirc;ncia do usu&aacute;rio est&atilde;o bem alinhadas.</p>
         </div>
-        <div class="alert-card alert-info reveal">
-          <div class="alert-content">
-            <h4>CPL de R$ 26,37 &mdash; saud&aacute;vel para alto ticket</h4>
-            <p>Para servi&ccedil;os como implantes e pr&oacute;teses (tickets de R$ 3.000 a R$ 20.000+), um custo de R$ 26 por lead representa boa rela&ccedil;&atilde;o custo-benef&iacute;cio.</p>
-          </div>
-        </div>
-        <div class="alert-card alert-info reveal">
-          <div class="alert-content">
-            <h4>Marca reconhecida &mdash; &ldquo;vr odontologia&rdquo; com CPL R$ 10,90</h4>
-            <p>Buscas diretas pela marca convertem com CPL excelente, indicando reconhecimento e confian&ccedil;a do p&uacute;blico.</p>
-          </div>
+      </div>
+      <div class="highlight-card highlight-positive reveal">
+        <div class="highlight-icon" style="color: var(--green);">&#10003;</div>
+        <div class="highlight-content">
+          <h4>50 leads em 30 dias com R$ 1.318 investidos</h4>
+          <p>Volume consistente de contatos para a cl&iacute;nica, com m&eacute;dia de 1,67 leads por dia. Considerando o ticket m&eacute;dio dos servi&ccedil;os, o potencial de receita gerada &eacute; significativo.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== A&Ccedil;&Otilde;ES ========== -->
-<section id="acoes">
+<!-- OTIMIZA&Ccedil;&Otilde;ES -->
+<section id="otimizacoes">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">09 / Pr&oacute;ximos passos</div>
-      <h2 class="section-title">Plano de a&ccedil;&atilde;o</h2>
+      <div class="section-label">08 / Pr&oacute;ximos passos</div>
+      <h2 class="section-title">Oportunidades de melhoria identificadas</h2>
+    </div>
+
+    <div class="reveal note-box note-box-blue" style="margin-bottom: 32px;">
+      Durante a an&aacute;lise do per&iacute;odo, identificamos pontos de otimiza&ccedil;&atilde;o que podem <strong style="color:var(--text)">melhorar o CPL e aumentar o volume de leads</strong> sem necessariamente aumentar o investimento. Segue o plano de a&ccedil;&atilde;o:
     </div>
 
     <div class="action-list">
       <div class="action-item reveal reveal-delay-1">
-        <div class="action-priority priority-urgent">URGENTE</div>
-        <div class="action-text">Adicionar lista de <strong>palavras-chave negativas</strong>: SUS, gratuito, 24 horas, emerg&ecirc;ncia, portugal, e concorrentes (Papaiz, VBM, Caroline Neder, Sorriso Odontologia), al&eacute;m de cidades fora do raio de atendimento.</div>
+        <div class="action-priority priority-now">EM ANDAMENTO</div>
+        <div class="action-text"><strong>Refinamento de palavras-chave negativas</strong> &mdash; j&aacute; adicionamos 18 novas negativas para evitar que o or&ccedil;amento seja consumido por buscas fora do perfil, como termos de outras cidades e buscas gen&eacute;ricas. Isso direciona melhor o investimento.</div>
       </div>
       <div class="action-item reveal reveal-delay-2">
-        <div class="action-priority priority-urgent">URGENTE</div>
-        <div class="action-text"><strong>Reavaliar o pausamento do conjunto Pr&oacute;tese</strong> &mdash; era o motor de leads da conta com CPL saud&aacute;vel. Se n&atilde;o houver motivo estrat&eacute;gico, reativar para recuperar o volume de leads.</div>
+        <div class="action-priority priority-now">EM ANDAMENTO</div>
+        <div class="action-text"><strong>Ajuste de segmenta&ccedil;&atilde;o geogr&aacute;fica</strong> &mdash; estamos refinando o raio de atua&ccedil;&atilde;o para concentrar as impress&otilde;es na regi&atilde;o de Moema, Vila Mariana e Ana Rosa, aumentando a relev&acirc;ncia dos cliques.</div>
       </div>
       <div class="action-item reveal reveal-delay-3">
-        <div class="action-priority priority-week">ESTA SEMANA</div>
-        <div class="action-text"><strong>Refinar a keyword &ldquo;dentista&rdquo;</strong> &mdash; trocar de correspond&ecirc;ncia ampla para frase, ou segmentar com modificadores mais espec&iacute;ficos como &ldquo;dentista implante moema&rdquo;, &ldquo;dentista pr&oacute;tese vila mariana&rdquo;.</div>
+        <div class="action-priority priority-soon">PR&Oacute;XIMA SEMANA</div>
+        <div class="action-text"><strong>Otimiza&ccedil;&atilde;o de hor&aacute;rios</strong> &mdash; identificamos que os melhores hor&aacute;rios para convers&atilde;o s&atilde;o entre 7h e 15h (CPL at&eacute; 60% menor). Vamos concentrar o or&ccedil;amento nesses per&iacute;odos de pico.</div>
       </div>
       <div class="action-item reveal reveal-delay-4">
-        <div class="action-priority priority-week">ESTA SEMANA</div>
-        <div class="action-text"><strong>Revisar segmenta&ccedil;&atilde;o geogr&aacute;fica</strong> &mdash; garantir que os an&uacute;ncios apare&ccedil;am apenas para pessoas dentro da regi&atilde;o de atendimento da cl&iacute;nica (Moema, Vila Mariana, Ana Rosa).</div>
+        <div class="action-priority priority-soon">PR&Oacute;XIMA SEMANA</div>
+        <div class="action-text"><strong>Expans&atilde;o do conjunto Implantes</strong> &mdash; tem o melhor CTR da conta (7,80%) mas volume limitado. Vamos adicionar mais palavras-chave relevantes para captar mais buscas qualificadas de implante.</div>
       </div>
       <div class="action-item reveal">
-        <div class="action-priority priority-next">2 SEMANAS</div>
-        <div class="action-text"><strong>Expandir keywords de Implantes</strong> &mdash; o conjunto tem bom CTR (7,80%) mas pouco volume. Adicionar mais termos relevantes pode equilibrar a conta.</div>
+        <div class="action-priority priority-next">PLANEJADO</div>
+        <div class="action-text"><strong>Avalia&ccedil;&atilde;o de separa&ccedil;&atilde;o por campanhas</strong> &mdash; quando o volume justificar, separar Implante e Pr&oacute;tese em campanhas distintas permite controlar o or&ccedil;amento individualmente e otimizar por servi&ccedil;o.</div>
       </div>
       <div class="action-item reveal">
-        <div class="action-priority priority-next">2 SEMANAS</div>
-        <div class="action-text"><strong>Avaliar separa&ccedil;&atilde;o de campanhas</strong> &mdash; quando o volume justificar, separar Implante e Pr&oacute;tese em campanhas distintas para controlar or&ccedil;amento individualmente.</div>
+        <div class="action-priority priority-next">PLANEJADO</div>
+        <div class="action-text"><strong>Reativa&ccedil;&atilde;o estrat&eacute;gica do conjunto Pr&oacute;tese</strong> &mdash; com as otimiza&ccedil;&otilde;es de segmenta&ccedil;&atilde;o e negativas j&aacute; aplicadas, a reativa&ccedil;&atilde;o desse conjunto pode trazer o volume de leads de volta com efici&ecirc;ncia ainda maior.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-logo">SP3 Company</div>
@@ -1629,34 +637,27 @@
 </footer>
 
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
         entry.target.querySelectorAll('.bar-fill[data-width]').forEach(bar => {
-          setTimeout(() => {
-            bar.style.width = bar.dataset.width + '%';
-          }, 300);
+          setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 300);
         });
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
   reveals.forEach(el => observer.observe(el));
 
-  // Nav dots
   const sections = document.querySelectorAll('section[id]');
   const dots = document.querySelectorAll('.nav-dot[data-section]');
-
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
       const target = document.getElementById(dot.dataset.section);
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
-
   const navObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1666,15 +667,10 @@
       }
     });
   }, { threshold: 0.3 });
-
   sections.forEach(s => navObserver.observe(s));
-
-  // Animate bars already visible on load
   document.querySelectorAll('.bar-fill[data-width]').forEach(bar => {
     const rect = bar.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 800);
-    }
+    if (rect.top < window.innerHeight) { setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 800); }
   });
 </script>
 </body>
