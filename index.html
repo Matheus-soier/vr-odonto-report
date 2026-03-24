@@ -3,29 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VR Odontologia — Relatorio Google Ads | SP3 Ads</title>
+<title>VR Odontologia — Relatório Google Ads | SP3 Company</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
   :root {
-    --bg: #0a0a0f;
-    --bg-card: #12121a;
-    --bg-card-hover: #1a1a26;
-    --border: #1e1e2e;
-    --border-hover: #2a2a3e;
-    --text: #e4e4ef;
-    --text-muted: #8888a0;
-    --text-dim: #5a5a70;
-    --accent: #6c5ce7;
-    --accent-glow: rgba(108, 92, 231, 0.3);
-    --green: #00d68f;
-    --green-glow: rgba(0, 214, 143, 0.15);
-    --red: #ff6b6b;
-    --red-glow: rgba(255, 107, 107, 0.15);
-    --yellow: #ffc048;
-    --yellow-glow: rgba(255, 192, 72, 0.15);
-    --blue: #4ecdc4;
-    --blue-glow: rgba(78, 205, 196, 0.15);
+    --bg: #fafafa;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f5f5f7;
+    --border: #e5e5ea;
+    --border-hover: #d1d1d6;
+    --text: #1a1a1a;
+    --text-muted: #6b6b7b;
+    --text-dim: #9a9aab;
+    --accent: #1a1a1a;
+    --accent-light: #444;
+    --green: #16a34a;
+    --green-bg: rgba(22, 163, 74, 0.08);
+    --red: #dc2626;
+    --red-bg: rgba(220, 38, 38, 0.06);
+    --yellow: #ca8a04;
+    --yellow-bg: rgba(202, 138, 4, 0.07);
+    --blue: #0284c7;
+    --blue-bg: rgba(2, 132, 199, 0.07);
     --mono: 'JetBrains Mono', monospace;
     --sans: 'Inter', -apple-system, sans-serif;
   }
@@ -46,53 +46,20 @@
     overflow-x: hidden;
   }
 
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-  /* Animated background grid */
   .bg-grid {
     position: fixed;
     inset: 0;
     z-index: 0;
     background-image:
-      radial-gradient(circle at 1px 1px, rgba(108,92,231,0.06) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, rgba(0,0,0,0.03) 1px, transparent 0);
     background-size: 40px 40px;
     pointer-events: none;
   }
 
-  .bg-glow {
-    position: fixed;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.07;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .bg-glow-1 {
-    top: -200px;
-    right: -100px;
-    background: var(--accent);
-    animation: float 20s ease-in-out infinite;
-  }
-
-  .bg-glow-2 {
-    bottom: -200px;
-    left: -100px;
-    background: var(--green);
-    animation: float 25s ease-in-out infinite reverse;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(30px, -40px); }
-  }
-
-  /* Layout */
   .container {
     position: relative;
     z-index: 1;
@@ -117,12 +84,12 @@
     align-items: center;
     gap: 8px;
     padding: 6px 16px;
-    background: rgba(108, 92, 231, 0.1);
-    border: 1px solid rgba(108, 92, 231, 0.2);
+    background: rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
     border-radius: 100px;
     font-size: 13px;
     font-weight: 500;
-    color: var(--accent);
+    color: var(--text-muted);
     letter-spacing: 0.5px;
     margin-bottom: 32px;
     animation: fadeInDown 0.8s ease;
@@ -147,15 +114,14 @@
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.03em;
+    color: var(--text);
     margin-bottom: 16px;
     animation: fadeInUp 0.8s ease 0.2s both;
   }
 
   .hero h1 span {
-    background: linear-gradient(135deg, var(--accent), var(--blue));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-muted);
+    font-weight: 600;
   }
 
   .hero-sub {
@@ -188,22 +154,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-40px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-
-  @keyframes countUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Scroll-triggered reveal */
   .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -231,7 +181,7 @@
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--text-dim);
     margin-bottom: 12px;
   }
 
@@ -241,6 +191,7 @@
     letter-spacing: -0.02em;
     margin-bottom: 40px;
     line-height: 1.2;
+    color: var(--text);
   }
 
   /* KPI Cards */
@@ -268,7 +219,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -277,6 +228,7 @@
     border-color: var(--border-hover);
     background: var(--bg-card-hover);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   }
 
   .kpi-card:hover::before {
@@ -298,6 +250,7 @@
     letter-spacing: -0.02em;
     line-height: 1;
     margin-bottom: 6px;
+    color: var(--text);
   }
 
   .kpi-sub {
@@ -325,27 +278,27 @@
   }
 
   .status-excelente {
-    background: var(--green-glow);
+    background: var(--green-bg);
     color: var(--green);
-    border: 1px solid rgba(0, 214, 143, 0.2);
+    border: 1px solid rgba(22, 163, 74, 0.15);
   }
 
   .status-bom {
-    background: var(--blue-glow);
+    background: var(--blue-bg);
     color: var(--blue);
-    border: 1px solid rgba(78, 205, 196, 0.2);
+    border: 1px solid rgba(2, 132, 199, 0.15);
   }
 
   .status-atencao {
-    background: var(--yellow-glow);
+    background: var(--yellow-bg);
     color: var(--yellow);
-    border: 1px solid rgba(255, 192, 72, 0.2);
+    border: 1px solid rgba(202, 138, 4, 0.15);
   }
 
   .status-critico {
-    background: var(--red-glow);
+    background: var(--red-bg);
     color: var(--red);
-    border: 1px solid rgba(255, 107, 107, 0.2);
+    border: 1px solid rgba(220, 38, 38, 0.15);
   }
 
   /* Tables */
@@ -364,7 +317,7 @@
   }
 
   thead {
-    background: rgba(108, 92, 231, 0.05);
+    background: rgba(0,0,0,0.02);
     border-bottom: 1px solid var(--border);
   }
 
@@ -381,12 +334,12 @@
 
   td {
     padding: 14px 16px;
-    border-top: 1px solid rgba(30, 30, 46, 0.5);
+    border-top: 1px solid rgba(0,0,0,0.04);
     white-space: nowrap;
   }
 
   tr:hover td {
-    background: rgba(108, 92, 231, 0.03);
+    background: rgba(0,0,0,0.015);
   }
 
   .td-mono {
@@ -414,7 +367,7 @@
   .bar-track {
     flex: 1;
     height: 6px;
-    background: rgba(108, 92, 231, 0.1);
+    background: rgba(0,0,0,0.06);
     border-radius: 3px;
     overflow: hidden;
     min-width: 80px;
@@ -426,8 +379,6 @@
     transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     width: 0;
   }
-
-  .bar-fill.animated { /* set via JS */ }
 
   .bar-green { background: var(--green); }
   .bar-accent { background: var(--accent); }
@@ -456,18 +407,18 @@
   }
 
   .alert-critical {
-    background: var(--red-glow);
-    border-color: rgba(255, 107, 107, 0.2);
+    background: var(--red-bg);
+    border-color: rgba(220, 38, 38, 0.15);
   }
 
   .alert-warning {
-    background: var(--yellow-glow);
-    border-color: rgba(255, 192, 72, 0.2);
+    background: var(--yellow-bg);
+    border-color: rgba(202, 138, 4, 0.15);
   }
 
   .alert-info {
-    background: var(--blue-glow);
-    border-color: rgba(78, 205, 196, 0.2);
+    background: var(--blue-bg);
+    border-color: rgba(2, 132, 199, 0.15);
   }
 
   .alert-number {
@@ -485,6 +436,7 @@
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 4px;
+    color: var(--text);
   }
 
   .alert-content p {
@@ -517,12 +469,13 @@
   .trend-card:hover {
     border-color: var(--border-hover);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   }
 
   .trend-week {
     font-size: 12px;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 4px;
@@ -574,21 +527,21 @@
   }
 
   .keyword-broad {
-    background: rgba(255, 192, 72, 0.1);
+    background: var(--yellow-bg);
     color: var(--yellow);
-    border: 1px solid rgba(255, 192, 72, 0.15);
+    border: 1px solid rgba(202, 138, 4, 0.15);
   }
 
   .keyword-phrase {
-    background: rgba(78, 205, 196, 0.1);
+    background: var(--blue-bg);
     color: var(--blue);
-    border: 1px solid rgba(78, 205, 196, 0.15);
+    border: 1px solid rgba(2, 132, 199, 0.15);
   }
 
   .keyword-exact {
-    background: rgba(108, 92, 231, 0.1);
-    color: var(--accent);
-    border: 1px solid rgba(108, 92, 231, 0.15);
+    background: rgba(0,0,0,0.04);
+    color: var(--text);
+    border: 1px solid var(--border);
   }
 
   /* Ad copy cards */
@@ -608,6 +561,7 @@
 
   .ad-card:hover {
     border-color: var(--border-hover);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   }
 
   .ad-header {
@@ -641,7 +595,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--accent);
+    color: var(--text-dim);
     margin-bottom: 8px;
     margin-top: 12px;
   }
@@ -655,8 +609,8 @@
 
   .ad-headline-pill {
     padding: 4px 10px;
-    background: rgba(108, 92, 231, 0.08);
-    border: 1px solid rgba(108, 92, 231, 0.12);
+    background: rgba(0,0,0,0.03);
+    border: 1px solid var(--border);
     border-radius: 6px;
     font-size: 12px;
     color: var(--text);
@@ -666,7 +620,7 @@
     font-size: 13px;
     color: var(--text-muted);
     padding: 8px 12px;
-    background: rgba(255,255,255,0.02);
+    background: rgba(0,0,0,0.02);
     border-radius: 8px;
     margin-bottom: 6px;
     border-left: 2px solid var(--border);
@@ -691,8 +645,8 @@
   }
 
   .ext-tag:hover {
-    border-color: var(--accent);
-    background: rgba(108, 92, 231, 0.05);
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
   }
 
   .ext-label {
@@ -723,6 +677,7 @@
   .action-item:hover {
     border-color: var(--border-hover);
     transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   }
 
   .action-priority {
@@ -738,21 +693,21 @@
   }
 
   .priority-urgent {
-    background: var(--red-glow);
+    background: var(--red-bg);
     color: var(--red);
-    border: 1px solid rgba(255, 107, 107, 0.2);
+    border: 1px solid rgba(220, 38, 38, 0.15);
   }
 
   .priority-week {
-    background: var(--yellow-glow);
+    background: var(--yellow-bg);
     color: var(--yellow);
-    border: 1px solid rgba(255, 192, 72, 0.2);
+    border: 1px solid rgba(202, 138, 4, 0.15);
   }
 
   .priority-next {
-    background: var(--blue-glow);
+    background: var(--blue-bg);
     color: var(--blue);
-    border: 1px solid rgba(78, 205, 196, 0.2);
+    border: 1px solid rgba(2, 132, 199, 0.15);
   }
 
   .action-text {
@@ -784,12 +739,13 @@
   .device-card:hover {
     border-color: var(--border-hover);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   }
 
   .device-icon {
     font-size: 28px;
     margin-bottom: 12px;
-    opacity: 0.8;
+    opacity: 0.7;
   }
 
   .device-name {
@@ -804,7 +760,7 @@
   .device-pct {
     font-size: 36px;
     font-weight: 800;
-    color: var(--accent);
+    color: var(--text);
     margin-bottom: 16px;
   }
 
@@ -829,8 +785,8 @@
     align-items: center;
     gap: 20px;
     padding: 24px;
-    background: var(--red-glow);
-    border: 1px solid rgba(255, 107, 107, 0.2);
+    background: var(--red-bg);
+    border: 1px solid rgba(220, 38, 38, 0.15);
     border-radius: 12px;
     margin-bottom: 24px;
   }
@@ -864,10 +820,7 @@
     font-weight: 800;
     letter-spacing: -0.02em;
     margin-bottom: 8px;
-  }
-
-  .footer-logo span {
-    color: var(--accent);
+    color: var(--text);
   }
 
   .footer-text {
@@ -902,12 +855,12 @@
   }
 
   .nav-dot.active {
-    background: var(--accent);
-    box-shadow: 0 0 12px var(--accent-glow);
+    background: var(--text);
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
   }
 
   .nav-dot:hover {
-    background: var(--accent);
+    background: var(--text);
     transform: scale(1.3);
   }
 
@@ -922,9 +875,11 @@
     border-radius: 6px;
     font-size: 11px;
     white-space: nowrap;
+    color: var(--text);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
 
   .nav-dot:hover .nav-tooltip {
@@ -939,15 +894,6 @@
     .waste-highlight { flex-direction: column; text-align: center; }
   }
 
-  /* Divider */
-  .section-divider {
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), transparent);
-    margin-bottom: 32px;
-  }
-
-  /* Sub heading */
   .sub-heading {
     font-size: 20px;
     font-weight: 700;
@@ -966,49 +912,64 @@
     margin-bottom: 24px;
     font-style: italic;
   }
+
+  .note-box {
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .note-box-yellow {
+    background: var(--yellow-bg);
+    border: 1px solid rgba(202, 138, 4, 0.15);
+  }
+
+  .note-box-red {
+    background: var(--red-bg);
+    border: 1px solid rgba(220, 38, 38, 0.15);
+  }
 </style>
 </head>
 <body>
 
 <div class="bg-grid"></div>
-<div class="bg-glow bg-glow-1"></div>
-<div class="bg-glow bg-glow-2"></div>
 
 <!-- Nav dots -->
 <nav class="nav-dots" id="navDots">
-  <div class="nav-dot active" data-section="hero"><span class="nav-tooltip">Inicio</span></div>
+  <div class="nav-dot active" data-section="hero"><span class="nav-tooltip">In&iacute;cio</span></div>
   <div class="nav-dot" data-section="kpis"><span class="nav-tooltip">KPIs</span></div>
   <div class="nav-dot" data-section="estrutura"><span class="nav-tooltip">Estrutura</span></div>
   <div class="nav-dot" data-section="dispositivos"><span class="nav-tooltip">Dispositivos</span></div>
   <div class="nav-dot" data-section="keywords"><span class="nav-tooltip">Keywords</span></div>
   <div class="nav-dot" data-section="termos"><span class="nav-tooltip">Termos de busca</span></div>
-  <div class="nav-dot" data-section="anuncios"><span class="nav-tooltip">Anuncios</span></div>
-  <div class="nav-dot" data-section="tendencia"><span class="nav-tooltip">Tendencia</span></div>
+  <div class="nav-dot" data-section="anuncios"><span class="nav-tooltip">An&uacute;ncios</span></div>
+  <div class="nav-dot" data-section="tendencia"><span class="nav-tooltip">Tend&ecirc;ncia</span></div>
   <div class="nav-dot" data-section="alertas"><span class="nav-tooltip">Alertas</span></div>
-  <div class="nav-dot" data-section="acoes"><span class="nav-tooltip">Proximos passos</span></div>
+  <div class="nav-dot" data-section="acoes"><span class="nav-tooltip">Pr&oacute;ximos passos</span></div>
 </nav>
 
 <!-- ========== HERO ========== -->
 <section class="hero" id="hero">
-  <div class="hero-badge">RELATORIO GOOGLE ADS</div>
-  <h1>VR Odontologia<br><span>e Estetica</span></h1>
-  <p class="hero-sub">Performance dos ultimos 30 dias na Rede de Pesquisa</p>
-  <div class="hero-period">22/fev — 24/mar 2026 &nbsp;&bull;&nbsp; 28 dias ativos</div>
+  <div class="hero-badge">RELAT&Oacute;RIO GOOGLE ADS</div>
+  <h1>VR Odontologia<br><span>e Est&eacute;tica</span></h1>
+  <p class="hero-sub">Performance dos &uacute;ltimos 30 dias na Rede de Pesquisa</p>
+  <div class="hero-period">22/fev &mdash; 24/mar 2026 &nbsp;&bull;&nbsp; 28 dias ativos</div>
 </section>
 
 <!-- ========== KPIs ========== -->
 <section id="kpis">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">01 / Visao Geral</div>
-      <h2 class="section-title">Numeros do periodo</h2>
+      <div class="section-label">01 / Vis&atilde;o Geral</div>
+      <h2 class="section-title">N&uacute;meros do per&iacute;odo</h2>
     </div>
 
     <div class="kpi-grid">
       <div class="kpi-card reveal reveal-delay-1">
         <div class="kpi-label">Investimento</div>
         <div class="kpi-value">R$ 1.318</div>
-        <div class="kpi-sub td-dim">Media R$ 47,09/dia</div>
+        <div class="kpi-sub td-dim">M&eacute;dia R$ 47,09/dia</div>
       </div>
       <div class="kpi-card reveal reveal-delay-2">
         <div class="kpi-label">Leads gerados</div>
@@ -1018,7 +979,7 @@
       <div class="kpi-card reveal reveal-delay-3">
         <div class="kpi-label">Custo por Lead</div>
         <div class="kpi-value kpi-blue">R$ 26,37</div>
-        <div class="kpi-sub" style="color: var(--green)">
+        <div class="kpi-sub">
           <span class="status-badge status-bom">BOM</span>
         </div>
       </div>
@@ -1038,21 +999,21 @@
         <div class="kpi-sub td-dim">12,4 cliques/dia</div>
       </div>
       <div class="kpi-card reveal reveal-delay-2">
-        <div class="kpi-label">Impressoes</div>
+        <div class="kpi-label">Impress&otilde;es</div>
         <div class="kpi-value">5.059</div>
         <div class="kpi-sub td-dim">180,7/dia</div>
       </div>
       <div class="kpi-card reveal reveal-delay-3">
-        <div class="kpi-label">CPC Medio</div>
+        <div class="kpi-label">CPC M&eacute;dio</div>
         <div class="kpi-value">R$ 3,80</div>
         <div class="kpi-sub">
           <span class="status-badge status-bom">BOM</span>
         </div>
       </div>
       <div class="kpi-card reveal reveal-delay-4">
-        <div class="kpi-label">Taxa de Conversao</div>
+        <div class="kpi-label">Taxa de Convers&atilde;o</div>
         <div class="kpi-value kpi-accent">14,4%</div>
-        <div class="kpi-sub td-dim">Clique → Lead</div>
+        <div class="kpi-sub td-dim">Clique &rarr; Lead</div>
       </div>
     </div>
   </div>
@@ -1063,11 +1024,11 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">02 / Estrutura</div>
-      <h2 class="section-title">Conjuntos de anuncios</h2>
+      <h2 class="section-title">Conjuntos de an&uacute;ncios</h2>
     </div>
 
     <div class="reveal">
-      <p class="caption">Campanha: [SP3] [GERAL] [IMPLANTE, PROTESE, INST] &mdash; Estrategia: Maximize Conversions &mdash; Budget: R$ 30,61/dia</p>
+      <p class="caption">Campanha: [SP3] [GERAL] [IMPLANTE, PR&Oacute;TESE, INST] &mdash; Estrat&eacute;gia: Maximize Conversions &mdash; Or&ccedil;amento: R$ 30,61/dia</p>
     </div>
 
     <div class="table-wrapper reveal">
@@ -1087,7 +1048,7 @@
         </thead>
         <tbody>
           <tr>
-            <td class="td-name">Protese</td>
+            <td class="td-name">Pr&oacute;tese</td>
             <td><span class="status-badge status-atencao">PAUSADO</span></td>
             <td class="td-mono">R$ 1.124,25</td>
             <td>
@@ -1138,8 +1099,8 @@
       </table>
     </div>
 
-    <div class="reveal" style="padding: 16px 20px; background: rgba(255,192,72,0.06); border: 1px solid rgba(255,192,72,0.15); border-radius: 10px; font-size: 14px; color: var(--text-muted);">
-      O conjunto <strong style="color:var(--text)">Protese</strong> concentrou 85% do investimento e gerou 84% dos leads (42 de 50). Com ele pausado, o volume caiu significativamente nas ultimas duas semanas.
+    <div class="reveal note-box note-box-yellow">
+      O conjunto <strong style="color:var(--text)">Pr&oacute;tese</strong> concentrou 85% do investimento e gerou 84% dos leads (42 de 50). Com ele pausado, o volume caiu significativamente nas &uacute;ltimas duas semanas.
     </div>
   </div>
 </section>
@@ -1149,7 +1110,7 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">03 / Dispositivos</div>
-      <h2 class="section-title">De onde vem os leads</h2>
+      <h2 class="section-title">De onde v&ecirc;m os leads</h2>
     </div>
 
     <div class="device-grid">
@@ -1214,7 +1175,7 @@
             <td class="td-mono">R$ 27,57</td>
           </tr>
           <tr>
-            <td class="td-name">implantes dentarios valores</td>
+            <td class="td-name">implantes dent&aacute;rios valores</td>
             <td><span class="keyword-tag keyword-phrase">FRASE</span></td>
             <td class="td-mono">R$ 57,76</td>
             <td class="td-mono">21</td>
@@ -1222,7 +1183,7 @@
             <td class="td-mono">R$ 19,25</td>
           </tr>
           <tr>
-            <td class="td-name">implante dentario SP</td>
+            <td class="td-name">implante dent&aacute;rio SP</td>
             <td><span class="keyword-tag keyword-phrase">FRASE</span></td>
             <td class="td-mono">R$ 53,39</td>
             <td class="td-mono">14</td>
@@ -1230,7 +1191,7 @@
             <td class="td-mono">R$ 53,39</td>
           </tr>
           <tr>
-            <td class="td-name">proteses dentarias fixas precos</td>
+            <td class="td-name">pr&oacute;teses dent&aacute;rias fixas pre&ccedil;os</td>
             <td><span class="keyword-tag keyword-broad">AMPLA</span></td>
             <td class="td-mono">R$ 49,06</td>
             <td class="td-mono">14</td>
@@ -1246,7 +1207,7 @@
             <td class="td-mono kpi-green">R$ 10,90</td>
           </tr>
           <tr>
-            <td class="td-name">especialistas em proteses dentarias</td>
+            <td class="td-name">especialistas em pr&oacute;teses dent&aacute;rias</td>
             <td><span class="keyword-tag keyword-broad">AMPLA</span></td>
             <td class="td-mono">R$ 27,99</td>
             <td class="td-mono">12</td>
@@ -1254,7 +1215,7 @@
             <td class="td-mono kpi-green">R$ 13,99</td>
           </tr>
           <tr>
-            <td class="td-name">clinica protese dentaria</td>
+            <td class="td-name">cl&iacute;nica pr&oacute;tese dent&aacute;ria</td>
             <td><span class="keyword-tag keyword-broad">AMPLA</span></td>
             <td class="td-mono">R$ 23,89</td>
             <td class="td-mono">11</td>
@@ -1279,7 +1240,7 @@
         </thead>
         <tbody>
           <tr>
-            <td class="td-name">implante dentario sem parafuso</td>
+            <td class="td-name">implante dent&aacute;rio sem parafuso</td>
             <td><span class="keyword-tag keyword-phrase">FRASE</span></td>
             <td class="td-mono kpi-red">R$ 18,64</td>
             <td class="td-mono">12</td>
@@ -1300,7 +1261,7 @@
             <td class="td-mono kpi-red">0</td>
           </tr>
           <tr>
-            <td class="td-name">protese dentaria sp</td>
+            <td class="td-name">pr&oacute;tese dent&aacute;ria sp</td>
             <td><span class="keyword-tag keyword-phrase">FRASE</span></td>
             <td class="td-mono kpi-red">R$ 5,01</td>
             <td class="td-mono">1</td>
@@ -1323,8 +1284,8 @@
     <div class="waste-highlight reveal">
       <div class="waste-amount">~R$ 152</div>
       <div class="waste-text">
-        Estimativa de <strong>desperdicio em termos irrelevantes</strong> nos ultimos 30 dias.
-        Representa <strong>11,5% do investimento total</strong> — buscas de SUS, concorrentes, cidades fora do raio e termos genericos.
+        Estimativa de <strong>desperd&iacute;cio em termos irrelevantes</strong> nos &uacute;ltimos 30 dias.
+        Representa <strong>11,5% do investimento total</strong> &mdash; buscas de SUS, concorrentes, cidades fora do raio e termos gen&eacute;ricos.
       </div>
     </div>
 
@@ -1340,18 +1301,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td class="td-name">clinica odontologica sao paulo</td><td class="td-mono">R$ 15,45</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 15,45</td></tr>
-          <tr><td class="td-name">clinica odontologica avenida paulista</td><td class="td-mono">R$ 11,34</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 11,34</td></tr>
+          <tr><td class="td-name">cl&iacute;nica odontol&oacute;gica s&atilde;o paulo</td><td class="td-mono">R$ 15,45</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 15,45</td></tr>
+          <tr><td class="td-name">cl&iacute;nica odontol&oacute;gica avenida paulista</td><td class="td-mono">R$ 11,34</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 11,34</td></tr>
           <tr><td class="td-name">vr odontologia</td><td class="td-mono">R$ 10,71</td><td class="td-mono kpi-green">1</td><td class="td-mono kpi-green">R$ 10,71</td></tr>
           <tr><td class="td-name">dentista sorocaba</td><td class="td-mono">R$ 8,21</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 8,21</td></tr>
           <tr><td class="td-name">quanto custa limpeza de dente</td><td class="td-mono">R$ 8,11</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 8,11</td></tr>
           <tr><td class="td-name">vr odontologia itu</td><td class="td-mono">R$ 6,62</td><td class="td-mono kpi-green">1</td><td class="td-mono kpi-green">R$ 6,62</td></tr>
-          <tr><td class="td-name">clinicas odontologicas guarulhos</td><td class="td-mono">R$ 6,01</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 6,01</td></tr>
+          <tr><td class="td-name">cl&iacute;nicas odontol&oacute;gicas guarulhos</td><td class="td-mono">R$ 6,01</td><td class="td-mono kpi-green">1</td><td class="td-mono">R$ 6,01</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3 class="sub-heading reveal">Termos problematicos (gasto sem resultado)</h3>
+    <h3 class="sub-heading reveal">Termos problem&aacute;ticos (gasto sem resultado)</h3>
     <div class="table-wrapper reveal">
       <table>
         <thead>
@@ -1362,40 +1323,40 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td class="td-name">dra caroline neder dentista jundiai</td><td class="td-mono kpi-red">R$ 11,33</td><td class="td-dim">Concorrente especifico</td></tr>
-          <tr><td class="td-name">dentista 25 agosto duque de caxias</td><td class="td-mono kpi-red">R$ 11,30</td><td class="td-dim">Fora da area</td></tr>
+          <tr><td class="td-name">dra caroline neder dentista jundia&iacute;</td><td class="td-mono kpi-red">R$ 11,33</td><td class="td-dim">Concorrente espec&iacute;fico</td></tr>
+          <tr><td class="td-name">dentista 25 agosto duque de caxias</td><td class="td-mono kpi-red">R$ 11,30</td><td class="td-dim">Fora da &aacute;rea</td></tr>
           <tr><td class="td-name">como agendar dentista no sus</td><td class="td-mono kpi-red">R$ 9,58</td><td class="td-dim">Paciente SUS</td></tr>
-          <tr><td class="td-name">clinicas odontologicas em portugal</td><td class="td-mono kpi-red">R$ 8,21</td><td class="td-dim">Pais diferente</td></tr>
+          <tr><td class="td-name">cl&iacute;nicas odontol&oacute;gicas em portugal</td><td class="td-mono kpi-red">R$ 8,21</td><td class="td-dim">Pa&iacute;s diferente</td></tr>
           <tr><td class="td-name">odonto gratuito</td><td class="td-mono kpi-red">R$ 8,04</td><td class="td-dim">Busca gratuito</td></tr>
           <tr><td class="td-name">dentista pelo sus 24 horas</td><td class="td-mono kpi-red">R$ 7,60</td><td class="td-dim">Paciente SUS</td></tr>
-          <tr><td class="td-name">clinica odontologica sorocaba</td><td class="td-mono kpi-red">R$ 7,75</td><td class="td-dim">Fora da area</td></tr>
-          <tr><td class="td-name">clinica odontologica sbc</td><td class="td-mono kpi-red">R$ 7,66</td><td class="td-dim">Fora da area</td></tr>
+          <tr><td class="td-name">cl&iacute;nica odontol&oacute;gica sorocaba</td><td class="td-mono kpi-red">R$ 7,75</td><td class="td-dim">Fora da &aacute;rea</td></tr>
+          <tr><td class="td-name">cl&iacute;nica odontol&oacute;gica sbc</td><td class="td-mono kpi-red">R$ 7,66</td><td class="td-dim">Fora da &aacute;rea</td></tr>
           <tr><td class="td-name">vbm odontologia ltda</td><td class="td-mono kpi-red">R$ 7,40</td><td class="td-dim">Concorrente</td></tr>
-          <tr><td class="td-name">dentista riviera sao lourenco</td><td class="td-mono kpi-red">R$ 6,66</td><td class="td-dim">Fora da area</td></tr>
-          <tr><td class="td-name">papaiz tatuape</td><td class="td-mono kpi-red">R$ 5,78</td><td class="td-dim">Concorrente</td></tr>
+          <tr><td class="td-name">dentista riviera s&atilde;o louren&ccedil;o</td><td class="td-mono kpi-red">R$ 6,66</td><td class="td-dim">Fora da &aacute;rea</td></tr>
+          <tr><td class="td-name">papaiz tatua&eacute;</td><td class="td-mono kpi-red">R$ 5,78</td><td class="td-dim">Concorrente</td></tr>
           <tr><td class="td-name">sorriso odontologia franco da rocha</td><td class="td-mono kpi-red">R$ 5,07</td><td class="td-dim">Concorrente</td></tr>
-          <tr><td class="td-name">dentista 24h sao paulo</td><td class="td-mono kpi-red">R$ 5,48</td><td class="td-dim">Urgencia/emergencia</td></tr>
-          <tr><td class="td-name">dentista votuporanga</td><td class="td-mono kpi-red">R$ 5,16</td><td class="td-dim">Fora da area</td></tr>
-          <tr><td class="td-name">dentista embu das artes</td><td class="td-mono kpi-red">R$ 5,18</td><td class="td-dim">Fora da area</td></tr>
+          <tr><td class="td-name">dentista 24h s&atilde;o paulo</td><td class="td-mono kpi-red">R$ 5,48</td><td class="td-dim">Urg&ecirc;ncia/emerg&ecirc;ncia</td></tr>
+          <tr><td class="td-name">dentista votuporanga</td><td class="td-mono kpi-red">R$ 5,16</td><td class="td-dim">Fora da &aacute;rea</td></tr>
+          <tr><td class="td-name">dentista embu das artes</td><td class="td-mono kpi-red">R$ 5,18</td><td class="td-dim">Fora da &aacute;rea</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<!-- ========== ANUNCIOS ========== -->
+<!-- ========== AN&Uacute;NCIOS ========== -->
 <section id="anuncios">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">06 / Anuncios</div>
-      <h2 class="section-title">Copy em veiculacao</h2>
+      <div class="section-label">06 / An&uacute;ncios</div>
+      <h2 class="section-title">Copy em veicula&ccedil;&atilde;o</h2>
     </div>
 
     <div class="ad-grid">
-      <!-- Protese -->
+      <!-- Pr&oacute;tese -->
       <div class="ad-card reveal">
         <div class="ad-header">
-          <div class="ad-name">Protese</div>
+          <div class="ad-name">Pr&oacute;tese</div>
           <div class="ad-stats">
             <span>Gasto <strong>R$ 1.124</strong></span>
             <span>Cliques <strong>275</strong></span>
@@ -1404,20 +1365,20 @@
         </div>
         <div class="ad-section-label">Headlines</div>
         <div class="ad-headlines">
-          <span class="ad-headline-pill">VR Odontologia e Estetica</span>
-          <span class="ad-headline-pill">Protese Dentaria em Moema</span>
-          <span class="ad-headline-pill">Referencia na Vila Mariana</span>
-          <span class="ad-headline-pill">Protese Fixa na Ana Rosa</span>
-          <span class="ad-headline-pill">Clinica de Protese em SP</span>
-          <span class="ad-headline-pill">Protese de Porcelana Fixa</span>
+          <span class="ad-headline-pill">VR Odontologia e Est&eacute;tica</span>
+          <span class="ad-headline-pill">Pr&oacute;tese Dent&aacute;ria em Moema</span>
+          <span class="ad-headline-pill">Refer&ecirc;ncia na Vila Mariana</span>
+          <span class="ad-headline-pill">Pr&oacute;tese Fixa na Ana Rosa</span>
+          <span class="ad-headline-pill">Cl&iacute;nica de Pr&oacute;tese em SP</span>
+          <span class="ad-headline-pill">Pr&oacute;tese de Porcelana Fixa</span>
           <span class="ad-headline-pill">Coroa de Porcelana Pura</span>
           <span class="ad-headline-pill">Recupere Seu Sorriso Agora</span>
-          <span class="ad-headline-pill">Ponte Fixa Dentaria</span>
+          <span class="ad-headline-pill">Ponte Fixa Dent&aacute;ria</span>
         </div>
-        <div class="ad-section-label">Descricoes</div>
-        <div class="ad-desc-text">Referencia em proteses fixas e moveis na Vila Mariana. Recupere seu sorriso</div>
-        <div class="ad-desc-text">Clinica referencia em protese dentaria proxima a Ana Rosa e Moema</div>
-        <div class="ad-desc-text">Coroas e pontes em porcelana de alta durabilidade. Tecnologia avancada e estetica natural</div>
+        <div class="ad-section-label">Descri&ccedil;&otilde;es</div>
+        <div class="ad-desc-text">Refer&ecirc;ncia em pr&oacute;teses fixas e m&oacute;veis na Vila Mariana. Recupere seu sorriso</div>
+        <div class="ad-desc-text">Cl&iacute;nica refer&ecirc;ncia em pr&oacute;tese dent&aacute;ria pr&oacute;xima &agrave; Ana Rosa e Moema</div>
+        <div class="ad-desc-text">Coroas e pontes em porcelana de alta durabilidade. Tecnologia avan&ccedil;ada e est&eacute;tica natural</div>
       </div>
 
       <!-- Implantes -->
@@ -1432,19 +1393,19 @@
         </div>
         <div class="ad-section-label">Headlines</div>
         <div class="ad-headlines">
-          <span class="ad-headline-pill">VR Odontologia e Estetica</span>
-          <span class="ad-headline-pill">Implante Dentario em Moema</span>
+          <span class="ad-headline-pill">VR Odontologia e Est&eacute;tica</span>
+          <span class="ad-headline-pill">Implante Dent&aacute;rio em Moema</span>
           <span class="ad-headline-pill">Implante de Carga Imediata</span>
-          <span class="ad-headline-pill">Implante Dentario Sem Cortes</span>
+          <span class="ad-headline-pill">Implante Dent&aacute;rio Sem Cortes</span>
           <span class="ad-headline-pill">Tecnologia 3D e Tomografia</span>
           <span class="ad-headline-pill">Sorriso Novo em Poucos Dias</span>
           <span class="ad-headline-pill">Saiba o Valor do Seu Implante</span>
-          <span class="ad-headline-pill">Volte a Sorrir com Confianca</span>
+          <span class="ad-headline-pill">Volte a Sorrir com Confian&ccedil;a</span>
         </div>
-        <div class="ad-section-label">Descricoes</div>
-        <div class="ad-desc-text">Referencia em implantes em Moema e Vila Mariana. Atendimento humanizado e seguro</div>
+        <div class="ad-section-label">Descri&ccedil;&otilde;es</div>
+        <div class="ad-desc-text">Refer&ecirc;ncia em implantes em Moema e Vila Mariana. Atendimento humanizado e seguro</div>
         <div class="ad-desc-text">Recupere seu sorriso com implantes de carga imediata e tecnologia 3D sem cortes</div>
-        <div class="ad-desc-text">Solucoes modernas em implantes dentarios para todas as idades</div>
+        <div class="ad-desc-text">Solu&ccedil;&otilde;es modernas em implantes dent&aacute;rios para todas as idades</div>
       </div>
 
       <!-- Institucional -->
@@ -1459,22 +1420,22 @@
         </div>
         <div class="ad-section-label">Headlines</div>
         <div class="ad-headlines">
-          <span class="ad-headline-pill">VR Odontologia e Estetica</span>
-          <span class="ad-headline-pill">Clinica VR Odontologia</span>
+          <span class="ad-headline-pill">VR Odontologia e Est&eacute;tica</span>
+          <span class="ad-headline-pill">Cl&iacute;nica VR Odontologia</span>
           <span class="ad-headline-pill">VR Odontologia Ana Rosa</span>
-          <span class="ad-headline-pill">Referencia em Implantes</span>
-          <span class="ad-headline-pill">Referencia em Implantodontia</span>
+          <span class="ad-headline-pill">Refer&ecirc;ncia em Implantes</span>
+          <span class="ad-headline-pill">Refer&ecirc;ncia em Implantodontia</span>
           <span class="ad-headline-pill">Tecnologia All-on-4 e Carga</span>
         </div>
-        <div class="ad-section-label">Descricoes</div>
-        <div class="ad-desc-text">VR Odontologia: Referencia em implantes e reabilitacao oral</div>
-        <div class="ad-desc-text">Confira as avaliacoes de quem ja transformou o sorriso na VR Odontologia</div>
+        <div class="ad-section-label">Descri&ccedil;&otilde;es</div>
+        <div class="ad-desc-text">VR Odontologia: Refer&ecirc;ncia em implantes e reabilita&ccedil;&atilde;o oral</div>
+        <div class="ad-desc-text">Confira as avalia&ccedil;&otilde;es de quem j&aacute; transformou o sorriso na VR Odontologia</div>
       </div>
     </div>
 
-    <!-- Extensions -->
+    <!-- Extens&otilde;es -->
     <div class="reveal">
-      <h3 class="sub-heading">Extensoes ativas</h3>
+      <h3 class="sub-heading">Extens&otilde;es ativas</h3>
       <div class="ext-label">Telefone</div>
       <div class="ext-grid">
         <span class="ext-tag">(11) 98745-0824</span>
@@ -1486,7 +1447,7 @@
         <span class="ext-tag">Carga Imediata</span>
         <span class="ext-tag">Doutores</span>
         <span class="ext-tag">Tratamentos</span>
-        <span class="ext-tag">Sobre a Clinica</span>
+        <span class="ext-tag">Sobre a Cl&iacute;nica</span>
       </div>
       <div class="ext-label">Destaques</div>
       <div class="ext-grid">
@@ -1496,25 +1457,25 @@
         <span class="ext-tag">Estacionamento no Local</span>
         <span class="ext-tag">Pagamento Facilitado</span>
         <span class="ext-tag">Atendimento Humanizado</span>
-        <span class="ext-tag">Protese de Porcelana Fixa</span>
+        <span class="ext-tag">Pr&oacute;tese de Porcelana Fixa</span>
         <span class="ext-tag">Sorriso Natural e Bonito</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== TENDENCIA SEMANAL ========== -->
+<!-- ========== TEND&Ecirc;NCIA SEMANAL ========== -->
 <section id="tendencia">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">07 / Tendencia</div>
-      <h2 class="section-title">Evolucao semanal</h2>
+      <div class="section-label">07 / Tend&ecirc;ncia</div>
+      <h2 class="section-title">Evolu&ccedil;&atilde;o semanal</h2>
     </div>
 
     <div class="trend-grid">
       <div class="trend-card reveal reveal-delay-1">
         <div class="trend-week">Semana 1</div>
-        <div class="trend-dates">24/fev — 02/mar</div>
+        <div class="trend-dates">24/fev &mdash; 02/mar</div>
         <div class="trend-leads kpi-green">18</div>
         <div class="trend-label-leads">leads</div>
         <div class="trend-row"><span>Investimento</span><span>R$ 440</span></div>
@@ -1523,7 +1484,7 @@
       </div>
       <div class="trend-card reveal reveal-delay-2">
         <div class="trend-week">Semana 2</div>
-        <div class="trend-dates">03/mar — 09/mar</div>
+        <div class="trend-dates">03/mar &mdash; 09/mar</div>
         <div class="trend-leads kpi-green">20</div>
         <div class="trend-label-leads">leads</div>
         <div class="trend-row"><span>Investimento</span><span>R$ 441</span></div>
@@ -1532,7 +1493,7 @@
       </div>
       <div class="trend-card reveal reveal-delay-3">
         <div class="trend-week">Semana 3</div>
-        <div class="trend-dates">10/mar — 16/mar</div>
+        <div class="trend-dates">10/mar &mdash; 16/mar</div>
         <div class="trend-leads kpi-yellow">8</div>
         <div class="trend-label-leads">leads</div>
         <div class="trend-row"><span>Investimento</span><span>R$ 209</span></div>
@@ -1541,7 +1502,7 @@
       </div>
       <div class="trend-card reveal reveal-delay-4">
         <div class="trend-week">Semana 4</div>
-        <div class="trend-dates">17/mar — 24/mar</div>
+        <div class="trend-dates">17/mar &mdash; 24/mar</div>
         <div class="trend-leads kpi-red">4</div>
         <div class="trend-label-leads">leads</div>
         <div class="trend-row"><span>Investimento</span><span>R$ 229</span></div>
@@ -1550,8 +1511,8 @@
       </div>
     </div>
 
-    <div class="reveal" style="padding: 16px 20px; background: rgba(255,107,107,0.06); border: 1px solid rgba(255,107,107,0.15); border-radius: 10px; font-size: 14px; color: var(--text-muted);">
-      <strong style="color: var(--red);">Tendencia de queda</strong> — o CPL subiu de R$ 22 (semana 2) para R$ 57 (semana 4), e os leads cairam de 20 para 4. Coincide com o pausamento do conjunto Protese, que era o principal gerador de volume.
+    <div class="reveal note-box note-box-red">
+      <strong style="color: var(--red);">Tend&ecirc;ncia de queda</strong> &mdash; o CPL subiu de R$ 22 (semana 2) para R$ 57 (semana 4), e os leads ca&iacute;ram de 20 para 4. Coincide com o pausamento do conjunto Pr&oacute;tese, que era o principal gerador de volume.
     </div>
   </div>
 </section>
@@ -1560,8 +1521,8 @@
 <section id="alertas">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">08 / Diagnostico</div>
-      <h2 class="section-title">Pontos de atencao</h2>
+      <div class="section-label">08 / Diagn&oacute;stico</div>
+      <h2 class="section-title">Pontos de aten&ccedil;&atilde;o</h2>
     </div>
 
     <div class="alert-grid">
@@ -1569,52 +1530,52 @@
         <div class="alert-number">1</div>
         <div class="alert-content">
           <h4>Zero palavras-chave negativas</h4>
-          <p>A conta nao possui nenhuma negativa cadastrada. Buscas como "dentista sus", "odonto gratuito", "clinicas em portugal" e nomes de concorrentes consumiram ~R$ 152 do orcamento sem gerar leads.</p>
+          <p>A conta n&atilde;o possui nenhuma negativa cadastrada. Buscas como &ldquo;dentista sus&rdquo;, &ldquo;odonto gratuito&rdquo;, &ldquo;cl&iacute;nicas em portugal&rdquo; e nomes de concorrentes consumiram ~R$ 152 do or&ccedil;amento sem gerar leads.</p>
         </div>
       </div>
       <div class="alert-card alert-critical reveal reveal-delay-2">
         <div class="alert-number">2</div>
         <div class="alert-content">
-          <h4>Keyword "dentista" em ampla consome 75% do orcamento</h4>
-          <p>Essa unica palavra gastou R$ 992 de R$ 1.318. Por ser muito generica em correspondencia ampla, ativa para buscas de qualquer cidade, SUS, concorrentes e termos irrelevantes.</p>
+          <h4>Keyword &ldquo;dentista&rdquo; em ampla consome 75% do or&ccedil;amento</h4>
+          <p>Essa &uacute;nica palavra gastou R$ 992 de R$ 1.318. Por ser muito gen&eacute;rica em correspond&ecirc;ncia ampla, ativa para buscas de qualquer cidade, SUS, concorrentes e termos irrelevantes.</p>
         </div>
       </div>
       <div class="alert-card alert-warning reveal reveal-delay-3">
         <div class="alert-number">3</div>
         <div class="alert-content">
-          <h4>Conjunto Protese pausado</h4>
-          <p>Responsavel por 85% do investimento e 84% dos leads (42 de 50). Com ele pausado, o volume caiu para apenas 4 leads na ultima semana, com CPL de R$ 57.</p>
+          <h4>Conjunto Pr&oacute;tese pausado</h4>
+          <p>Respons&aacute;vel por 85% do investimento e 84% dos leads (42 de 50). Com ele pausado, o volume caiu para apenas 4 leads na &uacute;ltima semana, com CPL de R$ 57.</p>
         </div>
       </div>
       <div class="alert-card alert-warning reveal reveal-delay-4">
         <div class="alert-number">4</div>
         <div class="alert-content">
-          <h4>Termos fora da area de atuacao</h4>
-          <p>Cliques de Sorocaba, Duque de Caxias, Cotia, Jundiai, Votuporanga, Franco da Rocha — cidades provavelmente fora do raio de atendimento da clinica.</p>
+          <h4>Termos fora da &aacute;rea de atua&ccedil;&atilde;o</h4>
+          <p>Cliques vindos de Sorocaba, Duque de Caxias, Cotia, Jundia&iacute;, Votuporanga e Franco da Rocha &mdash; cidades provavelmente fora do raio de atendimento da cl&iacute;nica.</p>
         </div>
       </div>
     </div>
 
     <!-- O que funciona -->
     <div class="reveal" style="margin-top: 40px;">
-      <h3 class="sub-heading" style="color: var(--green);">O que esta funcionando bem</h3>
+      <h3 class="sub-heading" style="color: var(--green);">O que est&aacute; funcionando bem</h3>
       <div class="alert-grid">
         <div class="alert-card alert-info reveal">
           <div class="alert-content">
-            <h4>CTR de 6,86% — acima da media</h4>
-            <p>Os anuncios estao bem escritos e segmentados. A media do setor odontologico fica entre 3-5%. Isso indica que os textos estao atraindo o publico certo.</p>
+            <h4>CTR de 6,86% &mdash; acima da m&eacute;dia</h4>
+            <p>Os an&uacute;ncios est&atilde;o bem escritos e segmentados. A m&eacute;dia do setor odontol&oacute;gico fica entre 3-5%. Isso indica que os textos est&atilde;o atraindo o p&uacute;blico certo.</p>
           </div>
         </div>
         <div class="alert-card alert-info reveal">
           <div class="alert-content">
-            <h4>CPL de R$ 26,37 — saudavel para alto ticket</h4>
-            <p>Para servicos como implantes e proteses (tickets de R$ 3.000 a R$ 20.000+), um custo de R$ 26 por lead representa boa relacao custo-beneficio.</p>
+            <h4>CPL de R$ 26,37 &mdash; saud&aacute;vel para alto ticket</h4>
+            <p>Para servi&ccedil;os como implantes e pr&oacute;teses (tickets de R$ 3.000 a R$ 20.000+), um custo de R$ 26 por lead representa boa rela&ccedil;&atilde;o custo-benef&iacute;cio.</p>
           </div>
         </div>
         <div class="alert-card alert-info reveal">
           <div class="alert-content">
-            <h4>Marca reconhecida — "vr odontologia" com CPL R$ 10,90</h4>
-            <p>Buscas diretas pela marca convertem com CPL excelente, indicando reconhecimento e confianca do publico.</p>
+            <h4>Marca reconhecida &mdash; &ldquo;vr odontologia&rdquo; com CPL R$ 10,90</h4>
+            <p>Buscas diretas pela marca convertem com CPL excelente, indicando reconhecimento e confian&ccedil;a do p&uacute;blico.</p>
           </div>
         </div>
       </div>
@@ -1622,38 +1583,38 @@
   </div>
 </section>
 
-<!-- ========== ACOES ========== -->
+<!-- ========== A&Ccedil;&Otilde;ES ========== -->
 <section id="acoes">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">09 / Proximos passos</div>
-      <h2 class="section-title">Plano de acao</h2>
+      <div class="section-label">09 / Pr&oacute;ximos passos</div>
+      <h2 class="section-title">Plano de a&ccedil;&atilde;o</h2>
     </div>
 
     <div class="action-list">
       <div class="action-item reveal reveal-delay-1">
         <div class="action-priority priority-urgent">URGENTE</div>
-        <div class="action-text">Adicionar lista de <strong>palavras-chave negativas</strong>: SUS, gratuito, 24 horas, emergencia, portugal, e concorrentes (Papaiz, VBM, Caroline Neder, Sorriso Odontologia), alem de cidades fora do raio de atendimento.</div>
+        <div class="action-text">Adicionar lista de <strong>palavras-chave negativas</strong>: SUS, gratuito, 24 horas, emerg&ecirc;ncia, portugal, e concorrentes (Papaiz, VBM, Caroline Neder, Sorriso Odontologia), al&eacute;m de cidades fora do raio de atendimento.</div>
       </div>
       <div class="action-item reveal reveal-delay-2">
         <div class="action-priority priority-urgent">URGENTE</div>
-        <div class="action-text"><strong>Reavaliar o pausamento do conjunto Protese</strong> — era o motor de leads da conta com CPL saudavel. Se nao houver motivo estrategico, reativar para recuperar o volume de leads.</div>
+        <div class="action-text"><strong>Reavaliar o pausamento do conjunto Pr&oacute;tese</strong> &mdash; era o motor de leads da conta com CPL saud&aacute;vel. Se n&atilde;o houver motivo estrat&eacute;gico, reativar para recuperar o volume de leads.</div>
       </div>
       <div class="action-item reveal reveal-delay-3">
         <div class="action-priority priority-week">ESTA SEMANA</div>
-        <div class="action-text"><strong>Refinar a keyword "dentista"</strong> — trocar de correspondencia ampla para frase, ou segmentar com modificadores mais especificos como "dentista implante moema", "dentista protese vila mariana".</div>
+        <div class="action-text"><strong>Refinar a keyword &ldquo;dentista&rdquo;</strong> &mdash; trocar de correspond&ecirc;ncia ampla para frase, ou segmentar com modificadores mais espec&iacute;ficos como &ldquo;dentista implante moema&rdquo;, &ldquo;dentista pr&oacute;tese vila mariana&rdquo;.</div>
       </div>
       <div class="action-item reveal reveal-delay-4">
         <div class="action-priority priority-week">ESTA SEMANA</div>
-        <div class="action-text"><strong>Revisar segmentacao geografica</strong> — garantir que os anuncios aparecam apenas para pessoas dentro da regiao de atendimento da clinica (Moema, Vila Mariana, Ana Rosa).</div>
+        <div class="action-text"><strong>Revisar segmenta&ccedil;&atilde;o geogr&aacute;fica</strong> &mdash; garantir que os an&uacute;ncios apare&ccedil;am apenas para pessoas dentro da regi&atilde;o de atendimento da cl&iacute;nica (Moema, Vila Mariana, Ana Rosa).</div>
       </div>
       <div class="action-item reveal">
         <div class="action-priority priority-next">2 SEMANAS</div>
-        <div class="action-text"><strong>Expandir keywords de Implantes</strong> — o conjunto tem bom CTR (7,80%) mas pouco volume. Adicionar mais termos relevantes pode equilibrar a conta.</div>
+        <div class="action-text"><strong>Expandir keywords de Implantes</strong> &mdash; o conjunto tem bom CTR (7,80%) mas pouco volume. Adicionar mais termos relevantes pode equilibrar a conta.</div>
       </div>
       <div class="action-item reveal">
         <div class="action-priority priority-next">2 SEMANAS</div>
-        <div class="action-text"><strong>Avaliar separacao de campanhas</strong> — quando o volume justificar, separar Implante e Protese em campanhas distintas para controlar orcamento individualmente.</div>
+        <div class="action-text"><strong>Avaliar separa&ccedil;&atilde;o de campanhas</strong> &mdash; quando o volume justificar, separar Implante e Pr&oacute;tese em campanhas distintas para controlar or&ccedil;amento individualmente.</div>
       </div>
     </div>
   </div>
@@ -1662,8 +1623,8 @@
 <!-- ========== FOOTER ========== -->
 <footer>
   <div class="container">
-    <div class="footer-logo">SP3 <span>Ads</span></div>
-    <p class="footer-text">Relatorio gerado em 24/03/2026 &bull; Dados extraidos via Google Ads API</p>
+    <div class="footer-logo">SP3 Company</div>
+    <p class="footer-text">Relat&oacute;rio gerado em 24/03/2026 &bull; Dados extra&iacute;dos via Google Ads API</p>
   </div>
 </footer>
 
@@ -1674,7 +1635,6 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Animate bars
         entry.target.querySelectorAll('.bar-fill[data-width]').forEach(bar => {
           setTimeout(() => {
             bar.style.width = bar.dataset.width + '%';
@@ -1701,7 +1661,7 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         dots.forEach(d => d.classList.remove('active'));
-        const active = document.querySelector(`.nav-dot[data-section="${entry.target.id}"]`);
+        const active = document.querySelector('.nav-dot[data-section="' + entry.target.id + '"]');
         if (active) active.classList.add('active');
       }
     });
@@ -1709,7 +1669,7 @@
 
   sections.forEach(s => navObserver.observe(s));
 
-  // Animate bars already visible
+  // Animate bars already visible on load
   document.querySelectorAll('.bar-fill[data-width]').forEach(bar => {
     const rect = bar.getBoundingClientRect();
     if (rect.top < window.innerHeight) {
